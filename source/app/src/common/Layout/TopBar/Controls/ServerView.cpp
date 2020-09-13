@@ -8,7 +8,7 @@
 
 #include "ServerView.h"
 #include <sstream>
-#include "Studiomux.h"
+#include "Interkomm.h"
 
 //constructor
 ServerView::ServerView(ZDB * a_zdb, TCPClientConnection * a_server) : TCPClientConnectionView(a_zdb, a_server) {

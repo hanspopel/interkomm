@@ -18,7 +18,7 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/BaseControls/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/
-${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Audiomux/**
+${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/**
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Midimux/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Oscmux/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/
@@ -41,8 +41,8 @@ set(HEADERS ${PROJECT_NAME}_HEADERS)
 file(GLOB_RECURSE SOURCE_FILES "${RELATIVE_PATH_TO_SOURCE}/src/common/Root2/**")
 
 set(RootFiles
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/Studiomux.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/Studiomux.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/Interkomm.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/Interkomm.h
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/MainView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/MainView.h
   )
@@ -66,7 +66,12 @@ set(LayoutFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/LayoutManager.h
   )
 
-
+set(ChannelFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/ChannelView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/ChannelView.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/UserView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/UserView.h
+  )
 
 
 
@@ -103,7 +108,9 @@ source_group("Layout" FILES ${LayoutFiles})
 source_group("Layout\\Settings" FILES ${SettingsFiles})
 source_group("Layout\\TopBar" FILES ${TopBarFiles})
 source_group("Layout\\TopBar\\Controls" FILES ${TopBarControlFiles})
+source_group("Layout\\Channels" FILES ${ChannelFiles})
 include_directories("${PROJECT_BINARY_DIR}")
+
 
 
 get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
@@ -114,6 +121,7 @@ endforeach()
 set(SRC 
     ${RELATIVE_PATH_TO_SOURCE}/src/common/main.cpp
     ${SOURCE_FILES}
+    ${ChannelFiles}
     ${BaseControlsFiles}
     ${ConnectionFiles}    
     ${RootFiles}

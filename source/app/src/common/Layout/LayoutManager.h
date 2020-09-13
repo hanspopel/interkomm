@@ -13,8 +13,9 @@
 #include "TopBar.h"
 #include "TopBarButton.h"
 #include "SettingsView.h"
+#include "ChannelView.h"
 
-class Studiomux;
+class Interkomm;
 class LayoutManager : public GLControl {
 public:
     LayoutManager(ZDB * a_zdb);
@@ -31,8 +32,9 @@ public:
     void setFrame(CRect aFrame);
     void setFrames();
         
-    Studiomux * SMux = 0;
+    Interkomm * Ikomm = 0;
     
+    ChannelView * channel_view;
     
     
     void change_main_view(int atag);

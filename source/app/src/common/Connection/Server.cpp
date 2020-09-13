@@ -12,7 +12,7 @@
 #endif
 #include "InternalMidiManager.h"
 
-#include "Studiomux.h"
+#include "Interkomm.h"
 //constructor
 Server::Server(ZDB * a_zdb, TCPConnection * a_connection, TCPClientManager * a_manager) : TCPClientConnection(a_zdb, a_connection, a_manager) {
 
@@ -79,7 +79,7 @@ void Server::add_callbacks() {
     
     tcp_port->cb_manager->add_callback("/server/pong", [=] (const osc::ReceivedMessage &m) {
         
-        if (!manager || !Studiomux::Kit()->server_manager || gl->in_background->ivalue()) {
+        if (!manager || !Interkomm::Kit()->server_manager || gl->in_background->ivalue()) {
             return;
         }
         

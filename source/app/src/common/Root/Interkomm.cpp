@@ -6,16 +6,16 @@
 //  Copyright © 2016 Christian Blomert. All rights reserved.
 //
 
-#include "Studiomux.h"
+#include "Interkomm.h"
 #include "ZDBConsole.h"
 
-static Studiomux * studiomux = 0;
-Studiomux* Studiomux::m_pInstance = NULL;
-Studiomux* Studiomux::Kit(ZDB * a_zdb)
+static Interkomm * interkomm = 0;
+Interkomm* Interkomm::m_pInstance = NULL;
+Interkomm* Interkomm::Kit(ZDB * a_zdb)
 {
     if (!m_pInstance && a_zdb)   {
-        m_pInstance = new Studiomux(a_zdb);
-        studiomux = m_pInstance;
+        m_pInstance = new Interkomm(a_zdb);
+        interkomm = m_pInstance;
         m_pInstance->init();
     }// Only allow one instance of class to be generated. *not threadsafe, only use from main during init*
     return m_pInstance;
@@ -23,12 +23,12 @@ Studiomux* Studiomux::Kit(ZDB * a_zdb)
 
 
 //constructor
-Studiomux::Studiomux(ZDB * a_zdb) : GLControl(a_zdb) {
+Interkomm::Interkomm(ZDB * a_zdb) : GLControl(a_zdb) {
     
 }
 
 //deconstructor
-Studiomux::~Studiomux() {
+Interkomm::~Interkomm() {
     
     delete server_manager;
     delete main_view;
@@ -36,7 +36,7 @@ Studiomux::~Studiomux() {
     
 }
 
-void Studiomux::init(){
+void Interkomm::init(){
     
     al->use_input->setValue(true);
 
@@ -83,12 +83,12 @@ void Studiomux::init(){
 
 }
 
-void Studiomux::setFrame(CRect aFrame){
+void Interkomm::setFrame(CRect aFrame){
     GLControl::setFrame(aFrame);
 }
 
 
-void Studiomux::save_session() {
+void Interkomm::save_session() {
     if (connected_to_server->ivalue()) {
 
         save("prefs.mmp");
@@ -99,7 +99,7 @@ void Studiomux::save_session() {
 
 
 
-void Studiomux::save(string path) {
+void Interkomm::save(string path) {
     load_save_lock->Lock();
     mss * binary = new mss(0);
     binary->write_string("asd");
@@ -108,7 +108,7 @@ void Studiomux::save(string path) {
     delete binary;
 }
 
-bool Studiomux::load(string path ) {
+bool Interkomm::load(string path ) {
     
     load_save_lock->Lock();
     

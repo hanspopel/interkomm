@@ -7,7 +7,7 @@
 //
 
 #include "LayoutManager.h"
-#include "Studiomux.h"
+#include "Interkomm.h"
 #include "GLScreen.h"
 #include "ServerManager.h"
 #include "ZDBConsole.h"
@@ -15,7 +15,7 @@
 //constructor
 LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
     
-    SMux = Studiomux::Kit();
+    Ikomm = Interkomm::Kit();
     
     chain_extension_state = addParameter("Chain Extesion State", -1, 2, -1, true, is_linear, 0);
     chain_extension_state->last_value_private = 0;
@@ -31,6 +31,8 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
     
     content_view = new GLView(a_zdb);
     main_view->addSubview(content_view);
+    
+    channel_view = new ChannelView(a_zdb,content_views);
     
     settings_view = new SettingsView(a_zdb);
     main_view->addSubview(settings_view);
@@ -78,7 +80,7 @@ void LayoutManager::apply_rotation(){
         top_bar->main_grid->setViewSize(SizeMake(top_bar->grid_size_x, 1));
     }
     else {
-        top_bar->main_grid->setViewSize(SizeMake(top_bar->grid_size_x/2., 1));
+        top_bar->main_grid->setViewSize(SizeMake(top_bar->grid_size_x, 1));
     }
     
 }

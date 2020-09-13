@@ -16,31 +16,20 @@
 #include "GLPropertyList.h"
 
 class LayoutManager;
-class Studiomux;
+class Interkomm;
 class TopBar : public GLView {
 public:
     TopBar(ZDB * a_zdb, LayoutManager * layout_manager);
     ~TopBar();
     
-    int grid_size_x = 12;
+    int grid_size_x = 4;
 
-    Studiomux * SMux = 0;
+    Interkomm * IKom = 0;
     
     GLGridScrollView * main_grid;
     
-    TopBarButton * studiomux_button;
-    TopBarButton * midimux_button;
-    TopBarButton * oscmux_button;
+    TopBarButton * channel_button;
 
-    TopBarButton * settings_button;
-    TopBarButton * audiobus_button;
-    TopBarButton * browser_button;
-    TopBarButton * help_button;
-
-    TopBarButton * launch_ab_btn;
-    TopBarButton * musical_keyboard_btn;
-    TopBarButton * main_monitoring;
-    TopBarButton * mixer_toggle;
 
     TopBarButton * server_status;
 

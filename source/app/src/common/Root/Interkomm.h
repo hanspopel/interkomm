@@ -6,8 +6,8 @@
 //  Copyright © 2016 Christian Blomert. All rights reserved.
 //
 
-#ifndef __Engine__Studiomux__
-#define __Engine__Studiomux__
+#ifndef __Engine__Interkomm__
+#define __Engine__Interkomm__
 #include "Engine.h"
 #include "GLControl.h"
 #include "MainView.h"
@@ -20,10 +20,10 @@
 #include "opus.h"
 
 
-class Studiomux : public GLControl  {
+class Interkomm : public GLControl  {
 public:
-    Studiomux(ZDB * a_zdb);
-    ~Studiomux();
+    Interkomm(ZDB * a_zdb);
+    ~Interkomm();
     
     MainView * main_view = 0;
     
@@ -40,9 +40,9 @@ public:
     Parameter * connected_to_server = 0;
 
     
-    static Studiomux* Kit(ZDB * a_zdb = 0);
-    void operator=(Studiomux const&){};
-    static Studiomux* m_pInstance;
+    static Interkomm* Kit(ZDB * a_zdb = 0);
+    void operator=(Interkomm const&){};
+    static Interkomm* m_pInstance;
     
     void init();
     void setFrame(CRect aFrame);
@@ -54,6 +54,6 @@ public:
 
 };
 
-typedef vector <Studiomux*> Studiomuxs;
+typedef vector <Interkomm*> Interkomms;
 
-#endif /* defined(__Engine__Studiomux__) */
+#endif /* defined(__Engine__Interkomm__) */

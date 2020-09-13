@@ -18,7 +18,7 @@
 #endif
 
 
-#include "Studiomux.h"
+#include "Interkomm.h"
 #include "USBDefines.h"
 
 //constructor
@@ -27,7 +27,7 @@ ServerManager::ServerManager(ZDB * a_zdb, string opt_dns_search_term){
 
     
     #ifdef __IOS__
-    server = new TCPServer(a_zdb, "");
+    server = new TCPServer(a_zdb, "",false);
     #else
     server = new TCPServer(a_zdb, "Intercom from Space",false);
     #endif

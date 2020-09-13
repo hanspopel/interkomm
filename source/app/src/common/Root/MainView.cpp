@@ -7,7 +7,7 @@
 //
 
 #include "MainView.h"
-#include "Studiomux.h"
+#include "Interkomm.h"
 
 //constructor
 MainView::MainView(ZDB * a_zdb) : GLControl(a_zdb) {

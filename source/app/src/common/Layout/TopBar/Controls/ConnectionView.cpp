@@ -8,7 +8,7 @@
 
 #include "ConnectionView.h"
 #include "ServerManager.h"
-#include "Studiomux.h"
+#include "Interkomm.h"
 
 //constructor
 ConnectionView::ConnectionView(ZDB * a_zdb) : GLView(a_zdb) {

@@ -7,14 +7,14 @@
 //
 
 #include "TopBar.h"
-#include "Studiomux.h"
+#include "Interkomm.h"
 
 //constructor
 TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
     
     backgroundColor = GLTransparent();
     
-    SMux = Studiomux::Kit();
+    IKom = Interkomm::Kit();
     
     add_pre_draw_cb(new Callback([=](GLEvent * event){
         colorGL = GLWhite();
@@ -35,19 +35,7 @@ TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
     
     
     
-    studiomux_button = new TopBarButton(a_zdb,"audiomux_topbar.png", layout_manager, 0);
-    studiomux_button->setValue(1);
-    midimux_button = new TopBarButton(a_zdb,"midimux_topbar.png", layout_manager, 1);
-    oscmux_button = new TopBarButton(a_zdb,"oscmux_topbar.png", layout_manager, 2);
-    browser_button = new TopBarButton(a_zdb,"browser_topbar.png", layout_manager, 10);
-    help_button = new TopBarButton(a_zdb,"help_topbar.png", 0, -1);
-
-    settings_button = new TopBarButton(a_zdb,"settings_topbar.png", layout_manager, 11);
-    musical_keyboard_btn = new TopBarButton(a_zdb,"mute_icon.png", layout_manager, 20);
-    //launch_ab_btn = new TopBarButton(a_zdb,"audiobus_icon.png");
-    //main_monitoring = new TopBarButton(a_zdb,"monitor_icon.png");
-    
-    al->audio_output_active->setValue(1);
+    channel_button = new TopBarButton(a_zdb,"audiomux_topbar.png", layout_manager, 0);
 
     
     //mixer_toggle = new TopBarButton(a_zdb,"mixer_icon.png", layout_manager, 0);
@@ -98,18 +86,9 @@ TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
     
     
     
-    main_grid->addSubview(studiomux_button, 0, 0);
-    main_grid->addSubview(midimux_button, 1, 0);
-    main_grid->addSubview(oscmux_button, 2, 0);
-    main_grid->addSubview(browser_button, 3, 0);
-    main_grid->addSubview(help_button, 4, 0);
+    main_grid->addSubview(channel_button, 0, 0);
 
-    main_grid->addSubview(musical_keyboard_btn, 6, 0);
-    //main_grid->addSubview(launch_ab_btn, 7, 0);
-    //main_grid->addSubview(main_monitoring, 8, 0);
-    //main_grid->addSubview(mixer_toggle, 9, 0);
-    main_grid->addSubview(settings_button, 10, 0);
-    main_grid->addSubview(server_status, 11, 0);
+    main_grid->addSubview(server_status, 1, 0);
     
     add_server_status_callbacks();
 }

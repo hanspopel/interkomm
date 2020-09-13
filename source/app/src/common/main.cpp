@@ -11,7 +11,7 @@
 #include "ZDBConsole.h"
 #include "interkomm_resources.h"
 #include "InternalMidiManager.h"
-#include "Studiomux.h"
+#include "Interkomm.h"
 
 
 int main(int argc, char **argv)
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
             
      
             
-            Studiomux * studiomux = Studiomux::Kit(a_zdb);
+            Interkomm * studiomux = Interkomm::Kit(a_zdb);
 
             a_zdb->gl->base_context->addSubview(studiomux);
             //studiomux->app_version_label->setText("123");
