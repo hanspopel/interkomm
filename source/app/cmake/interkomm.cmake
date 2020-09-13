@@ -66,7 +66,19 @@ set(LayoutFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/LayoutManager.h
   )
 
+set(UserFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/User.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/User.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/SuperUser.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/SuperUser.h
+  )
 
+set(StructureFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common//Structure/Channel.h
+  )
 
 
 
@@ -103,6 +115,10 @@ source_group("Layout" FILES ${LayoutFiles})
 source_group("Layout\\Settings" FILES ${SettingsFiles})
 source_group("Layout\\TopBar" FILES ${TopBarFiles})
 source_group("Layout\\TopBar\\Controls" FILES ${TopBarControlFiles})
+source_group("User" FILES ${UserFiles})
+source_group("Structure" FILES ${StructureFiles})
+
+
 include_directories("${PROJECT_BINARY_DIR}")
 
 
@@ -121,6 +137,8 @@ set(SRC
     ${SettingsFiles}
     ${TopBarFiles}
     ${TopBarControlFiles}
+    ${UserFiles}
+    ${StructureFiles}
  )
 
 
