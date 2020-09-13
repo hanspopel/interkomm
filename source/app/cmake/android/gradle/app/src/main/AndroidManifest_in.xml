@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BEGIN_INCLUDE(manifest) -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.zerodebug.mymon"
+          android:versionCode="BUILD_NUMBER"
+          android:versionName="VERSION_NAME">
+  <!-- This .apk has no Java code itself, so set hasCode to false. -->
+  <application
+      android:allowBackup="false"
+      android:fullBackupContent="false"
+      android:icon="@mipmap/ic_launcher"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+      android:label="MyMon"
+      android:hasCode="false">
+
+
+    <!-- Our activity is the built-in NativeActivity framework class.
+         This will take care of integrating with our NDK code. -->
+    <activity android:name="android.app.NativeActivity"
+              android:label="MyMon"
+              android:configChanges="keyboardHidden|keyboard|orientation|screenSize"
+              android:resizeableActivity="false">
+      <!-- Tell NativeActivity the name of our .so -->
+      <meta-data android:name="android.app.lib_name"
+                 android:value="MyMon" />
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+  </application>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.BLUETOOTH"/>
+</manifest>
+<!-- END_INCLUDE(manifest) -->
+
+
+
+

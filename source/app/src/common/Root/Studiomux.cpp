@@ -38,6 +38,9 @@ Studiomux::~Studiomux() {
 
 void Studiomux::init(){
     
+    al->use_input->setValue(true);
+
+    
     load_save_lock = new CThreadMutex;
     
     createDirectoryAtPath("/Sessions/");
@@ -55,15 +58,13 @@ void Studiomux::init(){
         
     }));
 
+    server_manager = new ServerManager(zdb,"_studiomux_device._tcp");
+
 
     
     zdb->gl->block_notch->setValue(true);
     zdb->gl->block_round_corner_edges->setValue(true);
     
-    server_manager = new ServerManager(zdb,"_studiomux_device._tcp");
-
-    callback_manager = server_manager->tcp_client->cb_manager;
-    server_manager->tcp_client->device_id = get_uuid();
 
 
     main_view = new MainView(zdb);
@@ -101,7 +102,7 @@ void Studiomux::save_session() {
 void Studiomux::save(string path) {
     load_save_lock->Lock();
     mss * binary = new mss(0);
-    binary->write_string(server_manager->last_active_server->string_value);
+    binary->write_string("asd");
     binary->write_to_path(path);
     load_save_lock->Unlock();
     delete binary;
@@ -122,7 +123,6 @@ bool Studiomux::load(string path ) {
                 return false;
             }
             string last_active = binary->read_string();
-            server_manager->last_active_server->setString(last_active);
             
             delete binary;
         }

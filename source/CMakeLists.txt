@@ -71,6 +71,9 @@ add_subdirectory(../zdb/source ../../build/ios/zdb)
 add_subdirectory(./app/cmake/ios ../../build/ios/app/)
 
 
+# add application for OSX:
+add_subdirectory(./app/cmake/osx ../../build/osx/app/)
+
 
 endif(APPLE)
 

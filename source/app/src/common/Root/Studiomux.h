@@ -17,9 +17,10 @@
 #include "TCPClient.h"
 #include "CallbackManager.h"
 #include "Server.h"
+#include "opus.h"
 
 
-class Studiomux : public GLControl, public MidiDelegate, public ExternalMidiManagerDelegate  {
+class Studiomux : public GLControl  {
 public:
     Studiomux(ZDB * a_zdb);
     ~Studiomux();

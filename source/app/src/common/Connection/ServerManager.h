@@ -18,50 +18,14 @@
 #include "USBPort.h"
 #endif
 
-class ServerManager : public TCPClientManager , public OSCDelegate, public TCPCallbackManagerDelegate, public USBPortConnectionDelegate {
+class ServerManager {
 public:
     ServerManager(ZDB * a_zdb, string opt_dns_search_term);
     ~ServerManager();
     
-    Parameter * server_connected;
-    Parameter * usb_connected;
-
-    bool do_handle_message();
-
-    long server_count = 0;
-    int server_connected_count = 0;
+    TCPClient * client;
     
-    bool removing_views = false;
-    
-    
-    void TCPConnectionAdded(TCPConnection * connection);
-    void TCPConnectionRemoved(TCPConnection * connection);
-
-    
-    void receivedOSC(const osc::ReceivedMessage& m);
-    void connectionClosed(USBPortConnection * port);
-    void connectionOpened(USBPortConnection * port);
-    
-    double clock_drift = 0;
-    double real_clock_drift = 1;
-
-    double clock_drift_addition = 0;
-    
-    
-//    Parameter * handshake;
-    Parameter * version_match = 0;
-    Parameter * host_name = 0;
-    Parameter * device_name = 0;
-
-    bool version_match_bool = true;
-    
-    int local_version = 210;
-    int remote_version = 0;
-
-    string device_id = "";
-    
-    CThreadMutex * audio_mutex;
-    
+    TCPServer * server;
     
 };
 

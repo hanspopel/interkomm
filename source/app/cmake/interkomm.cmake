@@ -29,6 +29,9 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/AudioNodes
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/AudiomuxChannel
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Keyboard/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/Controls
+${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include
+${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/silk
+${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/celt
 )
 
 set(SRC ${PROJECT_NAME}_SRC)

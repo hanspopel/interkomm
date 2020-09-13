@@ -91,13 +91,7 @@ void Server::add_callbacks() {
             //print("connection LOCK");
             manager->connection_lock->Lock();
 
-            for (TCPClientConnection * serv : *Studiomux::Kit()->server_manager->servers) {
-                Server * srv = (Server*)serv;
 
-                if (srv == ptr) {
-                    server_found = true;
-                }
-            }
             //print("connection UNLOCK");
             manager->connection_lock->Unlock();
 

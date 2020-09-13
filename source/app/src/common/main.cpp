@@ -66,7 +66,7 @@ int main(int argc, char **argv)
             
             createDirectoryAtPath("/Sessions/");
 
-            a_zdb->midi->addDelegate(studiomux);
+            //a_zdb->midi->addDelegate(studiomux);
             //a_zdb->midi->usb_bridge->usb_port->block_connect = false;
             
             a_zdb->gl->addTimerWithInterval(15, -1, [=]{
