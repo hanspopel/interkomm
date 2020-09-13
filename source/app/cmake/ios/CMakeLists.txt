@@ -1,10 +1,9 @@
 
 cmake_minimum_required (VERSION 3.0)
 
-#project(studiomux)
 set(IOS TRUE)
 
-include(../studiomux.cmake)
+include(../interkomm.cmake)
 
 
 # set Apple development team ID
@@ -21,3 +20,4 @@ set(APP_BUNDLE_IDENTIFIER ${BUNDLEID})
 include(../../../../zdb/scripts/ios.cmake)
 
 
+target_link_libraries(${NAME}_ios ${PROJECT_SOURCE_DIR}/libs/libopus.a)

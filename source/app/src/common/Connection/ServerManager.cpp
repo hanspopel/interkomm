@@ -22,8 +22,9 @@
 #include "USBDefines.h"
 
 
+
 //constructor
-ServerManager::ServerManager(ZDB * a_zdb, string opt_dns_search_term) : TCPClientManager(a_zdb, true, true, opt_dns_search_term, true, 2345) {
+ServerManager::ServerManager(ZDB * a_zdb, string opt_dns_search_term) : TCPClientManager(a_zdb, DataTypeFlags::can_process_midi | DataTypeFlags::can_process_audio, opt_dns_search_term, true, 2345) {
     
     handshake = addParameter("Handshake", 0, 1, 0, true, is_linear, 0);
     version_match = addParameter("Version Match", 0, 1, 0, true, is_linear, 0);

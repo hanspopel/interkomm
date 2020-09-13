@@ -9,7 +9,7 @@
 #include <GLLabel.h>
 #include <GLContext.h>
 #include "ZDBConsole.h"
-#include "studiomux_resources.h"
+#include "interkomm_resources.h"
 #include "InternalMidiManager.h"
 #include "Studiomux.h"
 
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 
         
         
-        __unused studiomux_resources * modstep_resource = new studiomux_resources(a_zdb);
+        __unused interkomm_resources * modstep_resource = new interkomm_resources(a_zdb);
         
         GLTextView * splashscreen = new GLTextView(a_zdb);
         splashscreen->font_size_level->setValue(9);
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
         splashscreen->fontColor = TALightLightGray();
         splashscreen->backgroundColor = TADarkGray();
         //splashscreen->setImage(zdb->gl->imageWithName("icon_1024X1024.png"));
-        splashscreen->setText("loading studiomux.");
+        splashscreen->setText("loading interkomm.");
         a_zdb->gl->base_context->backgroundColor = TAMidGray();
         GLContext * context = a_zdb->gl->addPopup(splashscreen, true, 0.04, GLColorMakeChar(29, 39, 45, 1), [=]{});
 

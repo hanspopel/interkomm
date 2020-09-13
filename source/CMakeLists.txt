@@ -11,7 +11,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
 
 
 
-project("intercom_all")
+project("interkomm_all")
 
 #SET(DEPLOY FALSE CACHE BOOL "Deployment Mode Enabled" FORCE)
 #SET(TEAMID "834XFBML77" CACHE STRING "Apple Codesign Team ID" FORCE)
@@ -19,7 +19,7 @@ project("intercom_all")
 
 option(DEPLOY "Deployment Mode" OFF)
 option(TEAMID "Apple Codesign Team ID" 834XFBML77)
-option(BUNDLEID "Apple iOS Bundle Identifier" com.zerodebug.studiomux)
+option(BUNDLEID "Apple iOS Bundle Identifier" com.zerodebug.interkomm)
 option(VERSION_NUMBER "Version Number" 21)
 option(BUILD_NUMBER "Build Number" 0)
 option(VERSION "Version Name" 0.0.21)
