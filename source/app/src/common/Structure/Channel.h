@@ -10,9 +10,9 @@
 #define Channel_hpp
 
 
-#include "User.hpp"
-#include "SuperUser.hpp"
-#include "Role.hpp"
+#include "User.h"
+#include "SuperUser.h"
+#include "Role.h"
 
 
 #include <stdio.h>
@@ -28,12 +28,15 @@ class Channel{
     
     vector<Role*> channelroles;
     
+
+    
     int maxUsers{20};
-    vector<User*> ChannelUsers{}; // spezialisierte SuperUser?
 //    User* user{0};
     
 public:
     static int ID;
+
+    Users * channel_users;
     
     Channel();
     Channel(vector<Role*>* chanroles);
@@ -44,6 +47,8 @@ public:
     int _id();
     
 };
+
+typedef vector <Channel*> Channels;
 
 
 

@@ -9,7 +9,7 @@
 #define SuperUser_hpp
 
 #include <stdio.h>
-#include "User.hpp"
+#include "User.h"
 
 class SuperUser : public User {
   

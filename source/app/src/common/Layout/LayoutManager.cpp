@@ -32,8 +32,9 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
     content_view = new GLView(a_zdb);
     main_view->addSubview(content_view);
     
-    channel_view = new ChannelView(a_zdb,content_views);
-    
+    channel_view_container = new ChannelViewContainer(a_zdb,content_views);
+    content_view->addSubview(channel_view_container);
+
     settings_view = new SettingsView(a_zdb);
     main_view->addSubview(settings_view);
 

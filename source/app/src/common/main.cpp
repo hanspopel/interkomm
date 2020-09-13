@@ -13,6 +13,10 @@
 #include "InternalMidiManager.h"
 #include "Interkomm.h"
 
+int User::ID{0};
+int Channel::ID{0};
+int Role::ID{0};
+
 
 int main(int argc, char **argv)
 {

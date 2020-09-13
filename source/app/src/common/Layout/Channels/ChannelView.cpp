@@ -10,39 +10,40 @@
 
 
 //constructor
-ChannelView::ChannelView(ZDB * a_zdb, GLViews * content_views) : ContentView(a_zdb, content_views) {
+ChannelView::ChannelView(ZDB * a_zdb, Channel * a_channel) : GLView(a_zdb) {
     
     tag = 0;
     
     
-    user_views = new UserViewDict;
+    user_view_map = new UserViewDict;
     
-
+    channel = a_channel;
     
     
     user_scroll_view = new GLGridScrollView(a_zdb);
-    user_scroll_view->setGridSize(SizeMake(6, 1));
-    user_scroll_view->setViewSize(SizeMake(3, 1));
+    user_scroll_view->setRelativeFrame(CRectMake(0, 0, 1, 0.8));
+    user_scroll_view->setGridSize(SizeMake(1, 20));
+    user_scroll_view->setViewSize(SizeMake(1, 5));
     user_scroll_view->startTouchesDelayed = true;
     user_scroll_view->delaysContentTouchesIfNeeded = true;
     user_scroll_view->directionalLockEnabled = true;
     user_scroll_view->startTouchesIfAxisBlocked = true;
+    user_scroll_view->clipsToBounds = true;
     user_scroll_view->transmitsTouchesMoved = true;
     user_scroll_view->isMultipleTouchEnabled = true;
     user_scroll_view->source_block = [=](int xx, int y, bool removing) {
         try {
-            int x = xx;
-            string key = format("%d", x);
+            string key = format("%d", y);
             
             if (removing) {
-                UserView * user_view = user_views->at(key);
-                user_views->erase(key);
+                UserView * user_view = user_view_map->at(key);
+                user_view_map->erase(key);
                 user_view->should_delete = true;
                 return user_view;
             }
-            else if (x < 2) {
-                UserView * user_view = new UserView(a_zdb);
-                user_views->emplace(key, user_view);
+            else if (y < channel->channel_users->size()) {
+                UserView * user_view = new UserView(a_zdb,channel->channel_users->at(y));
+                user_view_map->emplace(key, user_view);
                 return user_view;
             }
             
@@ -54,23 +55,15 @@ ChannelView::ChannelView(ZDB * a_zdb, GLViews * content_views) : ContentView(a_z
     };
     addSubview(user_scroll_view);
     
+    
+    talk_button = new dbButton(a_zdb);
+    talk_button->setRelativeFrame(CRectMake(0, 0.8, 1, 0.2));
+    talk_button->titleLabel->setText("talk");
+    addSubview(talk_button);
 }
 
 //deconstructor
 ChannelView::~ChannelView() {
     
 }
-
-void ChannelView::touchesBegan(GLTouch * touch){
-    initial_touch_x = touch->location.x;
-    ContentView::touchesBegan(touch);
-
-}
-
-
-void ChannelView::touchesMoved(GLTouch * touch){
-
-    ContentView::touchesMoved(touch);
-}
-
 

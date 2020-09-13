@@ -11,26 +11,25 @@
 #include "Engine.h"
 #include "ContentView.h"
 #include "GLGridScrollView.h"
-
 #include "UserView.h"
+#include "Channel.h"
+#include "dbButton.h"
 
 
-class ChannelView : public ContentView {
+class ChannelView : public GLView {
 public:
-    ChannelView(ZDB * a_zdb, GLViews * content_views);
+    ChannelView(ZDB * a_zdb, Channel * a_channel);
     ~ChannelView();
 
+    Channel * channel;
     GLGridScrollView * user_scroll_view;
+    UserViewDict * user_view_map;
     
-    UserViewDict * user_views;
     
-    
-  
-    void touchesMoved(GLTouch * touch);
-    void touchesBegan(GLTouch * touch);
-
-    float initial_touch_x = 0;
-    
+    dbButton * talk_button;
 };
 
-#endif /* defined(__Engine__AudiomuxView__) */
+typedef vector <ChannelView*> ChannelViews;
+
+
+#endif /* defined(__Engine__ChannelView__) */

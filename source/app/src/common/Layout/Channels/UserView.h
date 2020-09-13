@@ -11,15 +11,17 @@
 #include "Engine.h"
 #include "ContentView.h"
 #include "GLGridScrollView.h"
-
-
+#include "User.h"
 
 class UserView : public GLView {
 public:
-    UserView(ZDB * a_zdb);
+    UserView(ZDB * a_zdb, User * a_user);
     ~UserView();
 
+    User * user;
     
+    dbButton * talk_button;
+
 };
 
 typedef unordered_map <string, UserView*> UserViewDict;

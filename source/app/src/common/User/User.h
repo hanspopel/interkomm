@@ -54,11 +54,13 @@ public :
     void listentorec();
     
     int _id();
+    string _name();
     
 };
 
 
 
+typedef vector <User*> Users;
 
 
 

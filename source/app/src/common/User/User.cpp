@@ -66,6 +66,11 @@ int User::_id(){
     return id;
 }
 
+string User::_name(){
+
+    return name;
+}
+
 ostream& operator<<(ostream& _cout, User& u){
     
     _cout << "id: " << u.id << " name: " << u.name << endl;

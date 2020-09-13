@@ -14,6 +14,9 @@ Channel::Channel(){
     cout<<"Konstruktor Channel, ID :" << this->id << endl;
 
     ID++;
+    
+    
+    channel_users = new Users;
 }
 
 Channel::Channel(vector<Role*>* chanroles){

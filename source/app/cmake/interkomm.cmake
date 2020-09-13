@@ -17,6 +17,7 @@ include_directories(
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/BaseControls/
+${RELATIVE_PATH_TO_SOURCE}/src/common/Channels/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/**
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Midimux/
@@ -25,6 +26,8 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Browser/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/
+${RELATIVE_PATH_TO_SOURCE}/src/common//Structure/**
+${RELATIVE_PATH_TO_SOURCE}/src/common//User/**
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/AudioNodes
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/AudiomuxChannel
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Keyboard/
@@ -32,6 +35,9 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/Controls
 ${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include
 ${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/silk
 ${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/celt
+
+
+
 )
 
 set(SRC ${PROJECT_NAME}_SRC)
@@ -69,8 +75,11 @@ set(LayoutFiles
 set(ChannelFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/ChannelView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/ChannelView.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/ChannelViewContainer.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/ChannelViewContainer.h
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/UserView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Channels/UserView.h
+    )
 set(UserFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/User/User.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/User/User.h

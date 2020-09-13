@@ -13,7 +13,7 @@
 #include "TopBar.h"
 #include "TopBarButton.h"
 #include "SettingsView.h"
-#include "ChannelView.h"
+#include "ChannelViewContainer.h"
 
 class Interkomm;
 class LayoutManager : public GLControl {
@@ -34,7 +34,7 @@ public:
         
     Interkomm * Ikomm = 0;
     
-    ChannelView * channel_view;
+    ChannelViewContainer * channel_view_container;
     
     
     void change_main_view(int atag);
