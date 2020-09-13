@@ -28,13 +28,11 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/
 ${RELATIVE_PATH_TO_SOURCE}/src/common//Structure/**
 ${RELATIVE_PATH_TO_SOURCE}/src/common//User/**
-${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/AudioNodes
+${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/AudiomuxChannel
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Keyboard/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/Controls
-${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include
-${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/silk
-${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/celt
+
 
 
 
@@ -102,7 +100,10 @@ set(StructureFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.h
   )
 
-
+    set(AudioFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/Mixer.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/Mixer.h
+  )
 
    set(TopBarFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/TopBar.cpp
@@ -124,12 +125,15 @@ set(StructureFiles
 source_group("All" FILES ${SOURCE_FILES})
 source_group("Root" FILES ${RootFiles})
 source_group("BaseControls" FILES ${BaseControlsFiles})
+source_group("Audio" FILES ${AudioFiles})
 source_group("Connection" FILES ${ConnectionFiles})
+
 source_group("Layout" FILES ${LayoutFiles})
 source_group("Layout\\Settings" FILES ${SettingsFiles})
 source_group("Layout\\TopBar" FILES ${TopBarFiles})
 source_group("Layout\\TopBar\\Controls" FILES ${TopBarControlFiles})
 source_group("Layout\\Channels" FILES ${ChannelFiles})
+
 source_group("User" FILES ${UserFiles})
 source_group("Structure" FILES ${StructureFiles})
 include_directories("${PROJECT_BINARY_DIR}")
@@ -153,6 +157,7 @@ set(SRC
     ${TopBarFiles}
     ${TopBarControlFiles}
     ${UserFiles}
+    ${AudioFiles}
     ${StructureFiles}
  )
 

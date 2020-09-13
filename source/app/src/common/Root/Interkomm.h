@@ -17,7 +17,6 @@
 #include "TCPClient.h"
 #include "CallbackManager.h"
 #include "Server.h"
-#include "opus.h"
 
 
 class Interkomm : public GLControl  {

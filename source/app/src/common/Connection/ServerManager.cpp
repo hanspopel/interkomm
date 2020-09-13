@@ -24,12 +24,13 @@
 //constructor
 ServerManager::ServerManager(ZDB * a_zdb, string opt_dns_search_term){
     
+    int flags = DataTypeFlags::can_process_midi | DataTypeFlags::can_process_audio;
 
     
     #ifdef __IOS__
-    server = new TCPServer(a_zdb, "",false);
+    server = new TCPServer(a_zdb, flags, "" ,0);
     #else
-    server = new TCPServer(a_zdb, "Intercom from Space",false);
+    server = new TCPServer(a_zdb, flags, "Intercom from Space",0);
     #endif
         
     #ifndef __IOS__
@@ -38,7 +39,7 @@ ServerManager::ServerManager(ZDB * a_zdb, string opt_dns_search_term){
 
     
     #ifdef __IOS__
-        client = new TCPClient(a_zdb, "Intercom from Space");
+        client = new TCPClient(a_zdb, "Intercom from Space",flags);
         client->Start();
     #endif
         

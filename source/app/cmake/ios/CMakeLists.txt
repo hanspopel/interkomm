@@ -20,4 +20,3 @@ set(APP_BUNDLE_IDENTIFIER ${BUNDLEID})
 include(../../../../zdb/scripts/ios.cmake)
 
 
-target_link_libraries(${NAME}_ios ${PROJECT_SOURCE_DIR}/libs/libopus.a)
