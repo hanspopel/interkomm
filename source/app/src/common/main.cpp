@@ -16,7 +16,7 @@
 
 int main(int argc, char **argv)
 {
-    printf("studiomux.\n");
+    printf("Interkommi.\n");
     
     
     GLWindow * window = 0;
