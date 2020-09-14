@@ -14,10 +14,14 @@ Mixer::Mixer(ZDB * a_zdb, ServerManager * a_server_manager) : ALNode(a_zdb) {
     server_manager = a_server_manager;
     tcp_client = server_manager->client;
     
-    al->use_input->setValue(true);
-    
-    out_buffer_float = (float*)calloc(sizeof(float), 2048);
 
+
+    out_buffer_float = (float*)calloc(sizeof(float), 2048);
+    
+
+    microphone_input = new ALMicrophoneInput(a_zdb);
+    
+    zdb->al->input->addSource(microphone_input);
 }
 
 //deconstructor
@@ -28,6 +32,22 @@ Mixer::~Mixer() {
 
 
 void Mixer::processAudio(ALBuffer * buffer, unsigned int length) {
+    
+
+    
+    
+    float increment = (2. * M_PI / 44000. * 280.);
+
+    
+    for (int i = 0; i < length; i++) {
+        buffer->data_pointers[0][i] = microphone_input->source_buffer->audio_data[0][i];
+        buffer->data_pointers[1][i] = microphone_input->source_buffer->audio_data[0][i];
+    }
+        
+        float max_val = get_peak_value(buffer->data_pointers[0], length, 1);
+        
+        printz("max val out %f \n",max_val);
+    
 #ifdef __IOS__
     if (tcp_client && tcp_client->connections->size()) {
         

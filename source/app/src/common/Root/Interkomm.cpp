@@ -8,6 +8,7 @@
 
 #include "Interkomm.h"
 #include "ZDBConsole.h"
+#include "ALSource.h"
 
 static Interkomm * interkomm = 0;
 Interkomm* Interkomm::m_pInstance = NULL;
@@ -79,6 +80,10 @@ void Interkomm::init(){
     
     load("prefs.mmp");
     
+    mixer = new Mixer(zdb, server_manager);
+    
+    al->use_input->setValue(true);
+    zdb->al->output->addSource(mixer);
 
 
 }

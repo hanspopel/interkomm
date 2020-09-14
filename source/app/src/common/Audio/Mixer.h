@@ -12,6 +12,7 @@
 #include "GLView.h"
 #include "ALNode.h"
 #include "ServerManager.h"
+#include "ALMicrophoneInput.h"
 
 
 class Mixer : public ALNode {
@@ -22,7 +23,9 @@ public:
     ServerManager * server_manager = 0;
     TCPClient * tcp_client = 0;
 
-    void renderAudio(ALTransport * aTransport, double aCurrentTime, ALBuffer * buffer, int length);
+    ALMicrophoneInput * microphone_input;
+    
+//    void renderAudio(ALTransport * aTransport, double aCurrentTime, ALBuffer * buffer, int length);
     
     void processAudio(ALBuffer * buffer, unsigned int length);
 
