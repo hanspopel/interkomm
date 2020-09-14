@@ -37,11 +37,11 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/Controls
 
 )
 
-include_directories(
-${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include
-${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/silk
-${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/celt
-)
+#include_directories(
+#${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include
+#${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/silk
+#${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/celt
+#)
 
 set(SRC ${PROJECT_NAME}_SRC)
 set(HEADERS ${PROJECT_NAME}_HEADERS)
