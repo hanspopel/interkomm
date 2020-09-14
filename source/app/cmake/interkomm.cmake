@@ -11,7 +11,6 @@ set(RELATIVE_PATH_TO_SOURCE "${PROJECT_SOURCE_DIR}/app")
 # add the binary tree to the search path 
 include_directories("${PROJECT_BINARY_DIR}")
 include_directories("${PROJECT_BINARY_DIR}/studiomux_resources")
-include_directories("${RELATIVE_PATH_TO_SOURCE}/src/common/Root2/")
 
 include_directories(
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/
@@ -38,11 +37,16 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/Controls
 
 )
 
+include_directories(
+${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include
+${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/silk
+${RELATIVE_PATH_TO_SOURCE}/cmake/ios/libs/include/celt
+)
+
 set(SRC ${PROJECT_NAME}_SRC)
 set(HEADERS ${PROJECT_NAME}_HEADERS)
 
 
-file(GLOB_RECURSE SOURCE_FILES "${RELATIVE_PATH_TO_SOURCE}/src/common/Root2/**")
 
 set(RootFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/Interkomm.cpp
