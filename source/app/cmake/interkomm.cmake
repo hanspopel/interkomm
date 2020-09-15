@@ -63,8 +63,8 @@ set(RootFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/CallbackManager.h
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/Server.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/Server.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ServerManager.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ServerManager.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ConnectionManager.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ConnectionManager.h
   )
 
 set(LayoutFiles
@@ -95,13 +95,11 @@ set(StructureFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common//Structure/Channel.h
   )
-
-
-
-
     set(SettingsFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/NetworkSettingsView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/NetworkSettingsView.h
   )
 
     set(AudioFiles

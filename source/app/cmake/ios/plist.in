@@ -2,109 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN""http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>AudioComponents</key>
-  <array>
-    <dict>
-      <key>manufacturer</key>
-      <string>zero</string>
-      <key>name</key>
-      <string>Studiomux Out 1</string>
-      <key>subtype</key>
-      <string>sen0</string>
-      <key>type</key>
-      <string>aurg</string>
-      <key>version</key>
-      <integer>3</integer>
-    </dict>
-    <dict>
-      <key>manufacturer</key>
-      <string>zero</string>
-      <key>name</key>
-      <string>Studiomux Out 2</string>
-      <key>subtype</key>
-      <string>sen1</string>
-      <key>type</key>
-      <string>aurg</string>
-      <key>version</key>
-      <integer>3</integer>
-    </dict>
-    <dict>
-      <key>manufacturer</key>
-      <string>zero</string>
-      <key>name</key>
-      <string>Studiomux Out 3</string>
-      <key>subtype</key>
-      <string>sen2</string>
-      <key>type</key>
-      <string>aurg</string>
-      <key>version</key>
-      <integer>3</integer>
-    </dict>
-    <dict>
-      <key>manufacturer</key>
-      <string>zero</string>
-      <key>name</key>
-      <string>Studiomux Out 4</string>
-      <key>subtype</key>
-      <string>sen3</string>
-      <key>type</key>
-      <string>aurg</string>
-      <key>version</key>
-      <integer>3</integer>
-    </dict>
-    <dict>
-      <key>manufacturer</key>
-      <string>zero</string>
-      <key>name</key>
-      <string>Studiomux Out 5</string>
-      <key>subtype</key>
-      <string>sen4</string>
-      <key>type</key>
-      <string>aurg</string>
-      <key>version</key>
-      <integer>3</integer>
-    </dict>
-    <dict>
-      <key>manufacturer</key>
-      <string>zero</string>
-      <key>name</key>
-      <string>Studiomux Out 6</string>
-      <key>subtype</key>
-      <string>sen5</string>
-      <key>type</key>
-      <string>aurg</string>
-      <key>version</key>
-      <integer>3</integer>
-    </dict>
-    <dict>
-      <key>manufacturer</key>
-      <string>zero</string>
-      <key>name</key>
-      <string>Studiomux Out 7</string>
-      <key>subtype</key>
-      <string>sen6</string>
-      <key>type</key>
-      <string>aurg</string>
-      <key>version</key>
-      <integer>3</integer>
-    </dict>
-    <dict>
-      <key>manufacturer</key>
-      <string>zero</string>
-      <key>name</key>
-      <string>Studiomux Out 8</string>
-      <key>subtype</key>
-      <string>sen7</string>
-      <key>type</key>
-      <string>aurg</string>
-      <key>version</key>
-      <integer>3</integer>
-    </dict>
-  </array>
   <key>CFBundleDevelopmentRegion</key>
   <string>en</string>
   <key>CFBundleDisplayName</key>
-  <string>studiomux</string>
+  <string>interkomm</string>
   <key>CFBundleExecutable</key>
   <string>${MACOSX_BUNDLE_EXECUTABLE_NAME}</string>
   <key>CFBundleGetInfoString</key>
@@ -169,11 +70,6 @@
         <string>studiomux.audiobus</string>
       </array>
     </dict>
-  </array>
-  <key>LSApplicationQueriesSchemes</key>
-  <array>
-    <string>audiobus.audiobus</string>
-    <string>audiobus</string>
   </array>
   <key>CFBundleVersion</key>
   <string>${MACOSX_BUNDLE_BUNDLE_VERSION}</string>

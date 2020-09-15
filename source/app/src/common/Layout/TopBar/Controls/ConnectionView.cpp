@@ -7,7 +7,7 @@
 //
 
 #include "ConnectionView.h"
-#include "ServerManager.h"
+#include "ConnectionManager.h"
 #include "Interkomm.h"
 
 //constructor

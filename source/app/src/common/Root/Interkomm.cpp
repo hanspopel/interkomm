@@ -31,7 +31,7 @@ Interkomm::Interkomm(ZDB * a_zdb) : GLControl(a_zdb) {
 //deconstructor
 Interkomm::~Interkomm() {
     
-    delete server_manager;
+    delete connection_manager;
     delete main_view;
     delete load_save_lock;
     
@@ -59,7 +59,7 @@ void Interkomm::init(){
         
     }));
 
-    server_manager = new ServerManager(zdb,"_studiomux_device._tcp");
+    connection_manager = new ConnectionManager(zdb,"_studiomux_device._tcp");
 
 
     
@@ -80,7 +80,7 @@ void Interkomm::init(){
     
     load("prefs.mmp");
     
-    mixer = new Mixer(zdb, server_manager);
+    mixer = new Mixer(zdb, connection_manager);
     
     al->use_input->setValue(true);
     zdb->al->output->addSource(mixer);
@@ -95,7 +95,6 @@ void Interkomm::setFrame(CRect aFrame){
 
 void Interkomm::save_session() {
     if (connected_to_server->ivalue()) {
-
         save("prefs.mmp");
     }
 }

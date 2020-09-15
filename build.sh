@@ -1,12 +1,12 @@
 
 # !!!!!!!!!               ! CAUTION !                !!!!!!!!! #
-# run this script ONLY from main folder STUDIOMUX/.
+# run this script ONLY from main folder Interkomm/.
 
 # configure vars (These have to be configured for successful Android & iOS builds)
 
 # RequestUUID = 787438d6-cffc-4f74-a825-5713c3bf606a
 
-export ROOT_FOLDER_STUDIOMUX=$PWD
+export ROOT_FOLDER_INTERKOMM=$PWD
 
 # remove and create build.log
 LOGFILE_NAME=build_osx.log
@@ -21,7 +21,7 @@ fi
 
 
 
-LOGFILE=$ROOT_FOLDER_STUDIOMUX/$LOGFILE_NAME
+LOGFILE=$ROOT_FOLDER_INTERKOMM/$LOGFILE_NAME
 rm $LOGFILE
 touch $LOGFILE
 
@@ -30,11 +30,11 @@ touch $LOGFILE
   echo "#######      Setting Codesign ID to Zerodebug Account" 2>&1 | tee -a $LOGFILE
     # iOS codesigning
     # set to Zerodebug Apple Developer Account Team-ID
-    export CODESIGN_TEAM_ID_STUDIOMUX="834XFBML77"
+    export CODESIGN_TEAM_ID_NTERKOMM="834XFBML77"
 
 
     # set to the bundle identifier that has been set for the iOS app on Zerodebug iTunesConnect Account
-    export CODESIGN_BUNDLE_ID_STUDIOMUX="com.zerodebug.studiomux"
+    export CODESIGN_BUNDLE_ID_INTERKOMM="com.zerodebug.studiomux"
 
 
 read REV_NUMBER < build_number.txt
@@ -43,8 +43,8 @@ read REV_NUMBER < build_number.txt
     if [ "$RESULT" != "0" ]
     then
         #get mymon rev count
-        REV_NUMBER_STUDIOMUX=$(expr $(git rev-list master --count))
-        echo "REV NUMBER studiomux: $REV_NUMBER_STUDIOMUX" 2>&1 | tee -a $LOGFILE
+        REV_NUMBER_INTERKOMM=$(expr $(git rev-list master --count))
+        echo "REV NUMBER interkomm: $REV_NUMBER_INTERKOMM" 2>&1 | tee -a $LOGFILE
 
 
         cd zdb
@@ -55,7 +55,7 @@ read REV_NUMBER < build_number.txt
         cd ..
 
         # add up both revision numbers 
-        REV_NUMBER=$(expr $REV_NUMBER_STUDIOMUX + $REV_NUMBER_ZDB)
+        REV_NUMBER=$(expr $REV_NUMBER_INTERKOMM + $REV_NUMBER_ZDB)
 
     else
         :
@@ -73,19 +73,14 @@ export VERSION_INT="5000"
 # set to local Android SDK directory
 cd ~
 
-cd $ROOT_FOLDER_STUDIOMUX
+cd $ROOT_FOLDER_INTERKOMM
 
 
-
-
-
-
-
-export BUILD_IOS_STUDIOMUX=FALSE
-export BUILD_OSX_STUDIOMUX=FALSE
-export BUILD_ALL_STUDIOMUX=FALSE
-export CLEAN_ALL_STUDIOMUX=FALSE
-export BUILD_PROJECTS_STUDIOMUX=FALSE
+export BUILD_IOS_INTERKOMM=FALSE
+export BUILD_OSX_INTERKOMM=FALSE
+export BUILD_ALL_INTERKOMM=FALSE
+export CLEAN_ALL_INTERKOMM=FALSE
+export BUILD_PROJECTS_INTERKOMM=FALSE
 
 
 
@@ -135,7 +130,7 @@ do
 
     if [ "$arg" == "-clean" ]
     then
-        export CLEAN_ALL_STUDIOMUX=TRUE
+        export CLEAN_ALL_INTERKOMM=TRUE
     	echo "#######      Cleaning up.." 2>&1 | tee -a $LOGFILE
     	./source/scripts/clean.sh -all 2>&1 | tee -a $LOGFILE
 	fi
@@ -158,7 +153,7 @@ do
         fi
 
         CREATE_BUILD_FOLDER=ON
-        export CLEAN_ALL_STDUIOMUX=TRUE
+        export CLEAN_ALL_INTERKOMM=TRUE
         ./source/scripts/clean.sh $arg 2>&1 | tee -a $LOGFILE
     fi
 
@@ -187,11 +182,11 @@ fi
 
 if [ "$CREATE_XCODE_PROJ" == "ON" ]
     then
-        export BUILD_PROJECTS_STUDIOMUX=TRUE
+        export BUILD_PROJECTS_INTERKOMM=TRUE
         echo "#######      Generating XCode Projects.." 2>&1 | tee -a $LOGFILE
         mkdir build/osx 2>&1 | tee -a $LOGFILE
 
-        cd $ROOT_FOLDER_STUDIOMUX/build/osx
+        cd $ROOT_FOLDER_INTERKOMM/build/osx
         ../../source/scripts/build_projects.sh 2>&1 | tee -a $LOGFILE ; test ${PIPESTATUS[0]} -eq 0
 
 
@@ -209,12 +204,12 @@ fi
 
 for arg in "$@"
 do
-	cd $ROOT_FOLDER_STUDIOMUX
+	cd $ROOT_FOLDER_INTERKOMM
     RESULT="0"
     if [ "$arg" == "-all" ] || [ "$arg" == "-allr" ]
     then
-        export BUILD_ALL_STUDIOMUX=TRUE
-        echo "#######      Building all Targets (OSX, iOS, Plugin).. ROOT_FOLDER: $ROOT_FOLDER_STUDIOMUX" 2>&1 | tee -a $LOGFILE
+        export BUILD_ALL_INTERKOMM=TRUE
+        echo "#######      Building all Targets (OSX, iOS, Plugin).. ROOT_FOLDER: $ROOT_FOLDER_INTERKOMM" 2>&1 | tee -a $LOGFILE
         cd $ROOT_FOLDER_STUDIOMUX/build/osx
         ../../source/scripts/build_all.sh 2>&1 | tee -a $LOGFILE ; test ${PIPESTATUS[0]} -eq 0
         RESULT=$?
@@ -222,18 +217,18 @@ do
 
     if [ "$arg" == "-osx" ] || [ "$arg" == "-osxr" ]
     then
-        export BUILD_OSX_STUDIOMUX=TRUE
-        echo "#######      Building OSX Targets (Plugin, ControlPanel, App).. rootfolder: $ROOT_FOLDER_STUDIOMUX" 2>&1 | tee -a $LOGFILE
-        cd $ROOT_FOLDER_STUDIOMUX/build/osx
+        export BUILD_OSX_INTERKOMM=TRUE
+        echo "#######      Building OSX Targets (Plugin, ControlPanel, App).. rootfolder: $ROOT_FOLDER_INTERKOMM" 2>&1 | tee -a $LOGFILE
+        cd $ROOT_FOLDER_INTERKOMM/build/osx
         echo "in folder: $PWD"
         ../../source/scripts/build_osx.sh 2>&1 | tee -a $LOGFILE ; test ${PIPESTATUS[0]} -eq 0
         RESULT=$?
 	fi
     if [ "$arg" == "-server" ]
     then
-        export BUILD_OSX_STUDIOMUX=TRUE
-        echo "#######      Building OSX Targets (Plugin, ControlPanel, App).. rootfolder: $ROOT_FOLDER_STUDIOMUX" 2>&1 | tee -a $LOGFILE
-        cd $ROOT_FOLDER_STUDIOMUX/build/osx
+        export BUILD_OSX_INTERKOMM=TRUE
+        echo "#######      Building OSX Targets (Plugin, ControlPanel, App).. rootfolder: $ROOT_FOLDER_INTERKOMM" 2>&1 | tee -a $LOGFILE
+        cd $ROOT_FOLDER_INTERKOMM/build/osx
         echo "in folder: $PWD"
         ../../source/scripts/build_server.sh 2>&1 | tee -a $LOGFILE ; test ${PIPESTATUS[0]} -eq 0
         RESULT=$?
@@ -241,9 +236,9 @@ do
 
     if [ "$arg" == "-ios" ] || [ "$arg" == "-iosr" ] || [ "$arg" == "-iosrupload" ] || [ "$arg" == "-iosupload" ]
     then
-        export BUILD_IOS_STUDIOMUX=TRUE
+        export BUILD_IOS_INTERKOMM=TRUE
         echo "#######      Building iOS App.." 2>&1 | tee -a $LOGFILE
-        cd $ROOT_FOLDER_STUDIOMUX/build/osx
+        cd $ROOT_FOLDER_INTERKOMM/build/osx
         ../../source/scripts/build_ios.sh 2>&1 | tee -a $LOGFILE ; test ${PIPESTATUS[0]} -eq 0
         RESULT=$?
 	fi
@@ -258,18 +253,18 @@ do
         
     if [ "$arg" == "-iosrupload" ] || [ "$arg" == "-iosupload" ]
     then
-        export UPLOAD_IOS_STUDIOMUX=TRUE
+        export UPLOAD_IOS_INTERKOMM=TRUE
         echo "#######      Uploading iOS App.." 2>&1 | tee -a $LOGFILE
         cd $ROOT_FOLDER_STUDIOMUX/build/osx
         ../../source/scripts/upload_ios.sh 2>&1 | tee -a $LOGFILE ; test ${PIPESTATUS[0]} -eq 0
         RESULT=$?
     fi
 
-        export BUILD_ANDROID_STUDIOMUX=FALSE
-        export BUILD_IOS_STUDIOMUX=FALSE
-        export BUILD_OSX_STUDIOMUX=FALSE
-        export BUILD_ALL_STUDIOMUX=FALSE
-        export UPLOAD_IOS_STUDIOMUX=FALSE
+        export BUILD_ANDROID_INTERKOMM=FALSE
+        export BUILD_IOS_INTERKOMM=FALSE
+        export BUILD_OSX_INTERKOMM=FALSE
+        export BUILD_ALL_INTERKOMM=FALSE
+        export UPLOAD_IOS_INTERKOMM=FALSE
 done
 
 

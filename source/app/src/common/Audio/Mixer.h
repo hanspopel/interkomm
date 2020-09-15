@@ -11,17 +11,18 @@
 #include "Engine.h"
 #include "GLView.h"
 #include "ALNode.h"
-#include "ServerManager.h"
+#include "ConnectionManager.h"
 #include "ALMicrophoneInput.h"
 
 
 class Mixer : public ALNode {
 public:
-    Mixer(ZDB * a_zdb, ServerManager * a_server_manager);
+    Mixer(ZDB * a_zdb, ConnectionManager * a_connection_manager);
     ~Mixer();
 
-    ServerManager * server_manager = 0;
+    ConnectionManager * connection_manager = 0;
     TCPClient * tcp_client = 0;
+    TCPServer * tcp_server = 0;
 
     ALMicrophoneInput * microphone_input;
     
@@ -31,6 +32,9 @@ public:
 
     float * out_buffer_float;
 
+    bool send_audio_from_microphone = true;
+    bool receive_audio_from_network = true;
+    
     
 };
 

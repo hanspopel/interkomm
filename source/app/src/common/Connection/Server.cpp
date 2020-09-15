@@ -79,7 +79,7 @@ void Server::add_callbacks() {
     
     tcp_port->cb_manager->add_callback("/server/pong", [=] (const osc::ReceivedMessage &m) {
         
-        if (!manager || !Interkomm::Kit()->server_manager || gl->in_background->ivalue()) {
+        if (!manager || !Interkomm::Kit()->connection_manager || gl->in_background->ivalue()) {
             return;
         }
         

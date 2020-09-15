@@ -19,7 +19,7 @@ project("interkomm_all")
 
 option(DEPLOY "Deployment Mode" OFF)
 option(TEAMID "Apple Codesign Team ID" 834XFBML77)
-option(BUNDLEID "Apple iOS Bundle Identifier" com.zerodebug.interkomm)
+option(BUNDLEID "Apple iOS Bundle Identifier" com.zerodebug.studiomux)
 option(VERSION_NUMBER "Version Number" 21)
 option(BUILD_NUMBER "Build Number" 0)
 option(VERSION "Version Name" 0.0.21)

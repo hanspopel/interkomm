@@ -12,7 +12,7 @@
 #include "GLControl.h"
 #include "MainView.h"
 #include "TCPCallbackManager.h"
-#include "ServerManager.h"
+#include "ConnectionManager.h"
 #include "ThreadMutex.h"
 #include "TCPClient.h"
 #include "CallbackManager.h"
@@ -30,7 +30,7 @@ public:
     CThreadMutex * load_save_lock;
     
     TCPCallbackManager * callback_manager;
-    ServerManager * server_manager;
+    ConnectionManager * connection_manager;
     
     
     void save(string path);

@@ -12,6 +12,7 @@
 ContentView::ContentView(ZDB * a_zdb, GLViews * content_views) : GLView(a_zdb) {
     
     if (content_views) {
+        tag = static_cast<int>(content_views->size());
         content_views->push_back(this);
     }
     border_width = 4;

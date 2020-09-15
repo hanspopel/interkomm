@@ -13,6 +13,8 @@
 #include "TopBar.h"
 #include "TopBarButton.h"
 #include "SettingsView.h"
+#include "NetworkSettingsView.h"
+
 #include "ChannelViewContainer.h"
 
 class Interkomm;
@@ -47,6 +49,7 @@ public:
 
     
     SettingsView * settings_view;
+    NetworkSettingsView * network_settings_view;
 
     
     float topbar_height = 1;

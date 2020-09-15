@@ -9,7 +9,7 @@
 #include "SettingsView.h"
 
 //constructor
-SettingsView::SettingsView(ZDB * a_zdb) : GLView(a_zdb) {
+SettingsView::SettingsView(ZDB * a_zdb, GLViews * content_views) : ContentView(a_zdb,content_views) {
     
     backgroundColor = GLTBlue();
 

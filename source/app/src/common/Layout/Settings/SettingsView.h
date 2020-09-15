@@ -9,13 +9,13 @@
 #ifndef __Engine__SettingsView__
 #define __Engine__SettingsView__
 #include "Engine.h"
-#include "GLView.h"
+#include "ContentView.h"
 
 
 
-class SettingsView : public GLView {
+class SettingsView : public ContentView {
 public:
-    SettingsView(ZDB * a_zdb);
+    SettingsView(ZDB * a_zdb, GLViews * views);
     ~SettingsView();
     
 };
