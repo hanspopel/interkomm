@@ -59,7 +59,7 @@ void Interkomm::init(){
         
     }));
 
-    connection_manager = new ConnectionManager(zdb,"_studiomux_device._tcp");
+    connection_manager = new ConnectionManager(zdb, NetworkInfo::can_process_audio | NetworkInfo::forbid_loopback, "_interkomm_dns._tcp");
 
 
     

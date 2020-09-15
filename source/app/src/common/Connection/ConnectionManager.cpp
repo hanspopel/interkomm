@@ -22,21 +22,15 @@
 #include "USBDefines.h"
 
 //constructor
-ConnectionManager::ConnectionManager(ZDB * a_zdb, string opt_dns_search_term) : ParameterHost(a_zdb) {
-    
-    int general_flags = NetworkInfo::can_process_audio | NetworkInfo::forbid_loopback;
-
-    server = new TCPServer(a_zdb, general_flags, "Intercom from Space");
-    server->Start();
-
-    client = new TCPClient(a_zdb, general_flags | NetworkInfo::is_plugin, "Intercom from Space");
-    client->discovery->guid = server->discovery->guid;
-    client->delegate = this;
-    client->Start();
+ConnectionManager::ConnectionManager(ZDB * a_zdb, int flags, string opt_dns_search_term) : TCPClientManager(a_zdb, flags, opt_dns_search_term) {
         
-//    client_manager = new TCPClientManager(a_zdb, general_flags | NetworkInfo::is_plugin,"Intercom from Space");
-//    client->discovery->guid = server->discovery->guid;
-//    client->Start();
+    server = new TCPServer(a_zdb, flags, opt_dns_search_term);
+    server->Start();
+    
+    tcp_client->discovery->guid = server->discovery->guid;
+    tcp_client->plugin_client = true;
+
+
 
     servers_updated = addParameter("servers updated", 0, 1, 0, true, is_linear, new Callback([=](GLEvent * event){}));
     clients_updated = addParameter("clients updated", 0, 1, 0, true, is_linear, new Callback([=](GLEvent * event){}));

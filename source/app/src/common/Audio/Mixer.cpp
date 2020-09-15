@@ -12,7 +12,7 @@
 Mixer::Mixer(ZDB * a_zdb, ConnectionManager * a_connection_manager) : ALNode(a_zdb) {
     
     connection_manager = a_connection_manager;
-    tcp_client = connection_manager->client;
+    tcp_client = connection_manager->tcp_client;
     tcp_server = connection_manager->server;
 
 

@@ -19,16 +19,16 @@
 #include "USBPort.h"
 #endif
 
-class ConnectionManager: public ParameterHost, public TCPConnectionManagerDelegate {
+class ConnectionManager: public TCPClientManager , public OSCDelegate, public TCPCallbackManagerDelegate {
 public:
-    ConnectionManager(ZDB * a_zdb, string opt_dns_search_term);
+    ConnectionManager(ZDB * a_zdb, int flags, string opt_dns_search_term);
     ~ConnectionManager();
     
-    TCPClientManager * client_manager;
-    TCPServerManager * server_manager;
+//    TCPClientManager * client_manager;
+//    TCPServerManager * server_manager;
 
     TCPServer * server;
-    TCPClient * client;
+//    TCPClient * client;
 
     void TCPConnectionAdded(TCPConnection * connection);
     void TCPConnectionRemoved(TCPConnection * connection);

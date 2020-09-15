@@ -67,7 +67,7 @@ NetworkSettingsView::NetworkSettingsView(ZDB * a_zdb, GLViews * content_views, C
             server_views->clear();
             
             int minus = 0;
-            for (TCPConnection * a_server :*connection_manager->client->connections) {
+            for (TCPConnection * a_server :*connection_manager->tcp_client->connections) {
                 GLLabel * server_view = new GLLabel(zdb, a_server->device_name->string_value);
                 server_view->backgroundColor = GLTRed();
                 server_views->push_back(server_view);
