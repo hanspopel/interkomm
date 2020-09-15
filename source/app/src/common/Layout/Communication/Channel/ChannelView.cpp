@@ -10,14 +10,23 @@
 
 
 //constructor
-ChannelView::ChannelView(ZDB * a_zdb, Channel * a_channel) : GLView(a_zdb) {
+ChannelView::ChannelView(ZDB * a_zdb) : GLView(a_zdb) {
     
-    tag = 0;
+    tag = 1;
     
     
     user_view_map = new UserViewDict;
     
-    channel = a_channel;
+//    channel = a_channel;
+    
+
+    Channel * channel = new Channel();
+
+    for (int i = 0; i<2; i++) {
+        User * a_user = new User("asdasdasd");
+        channel->channel_users->push_back(a_user);
+    }
+
     
     
     user_scroll_view = new GLGridScrollView(a_zdb);
@@ -57,7 +66,7 @@ ChannelView::ChannelView(ZDB * a_zdb, Channel * a_channel) : GLView(a_zdb) {
     
     
     talk_button = new dbButton(a_zdb);
-    talk_button->setRelativeFrame(CRectMake(0, 0.8, 1, 0.2));
+    talk_button->setRelativeFrame(CRectMake(0, 0.8, 1, 1));
     talk_button->titleLabel->setText("talk");
     addSubview(talk_button);
 }

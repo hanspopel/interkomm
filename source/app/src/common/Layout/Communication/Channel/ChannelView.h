@@ -18,7 +18,7 @@
 
 class ChannelView : public GLView {
 public:
-    ChannelView(ZDB * a_zdb, Channel * a_channel);
+    ChannelView(ZDB * a_zdb);
     ~ChannelView();
 
     Channel * channel;
@@ -28,8 +28,5 @@ public:
     
     dbButton * talk_button;
 };
-
-typedef vector <ChannelView*> ChannelViews;
-
 
 #endif /* defined(__Engine__ChannelView__) */

@@ -28,9 +28,10 @@ public:
     
     GLGridScrollView * main_grid;
     
-    TopBarButton * channel_button;
+    TopBarButton * communication_button;
     TopBarButton * network_settings_button;
     TopBarButton * settings_button;
+
 
     TopBarButton * server_status;
 

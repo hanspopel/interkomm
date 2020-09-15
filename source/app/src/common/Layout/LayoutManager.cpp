@@ -30,9 +30,12 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
     addSubview(main_view);
     
     
-    channel_view_container = new ChannelViewContainer(a_zdb,content_views);
+
+    communication_view = new CommunicationView(a_zdb,content_views);
+    content_view->addSubview(communication_view);
     network_settings_view = new NetworkSettingsView(a_zdb,content_views,Ikomm->connection_manager);
     settings_view = new SettingsView(a_zdb,content_views);
+
     
     top_bar = new TopBar(a_zdb,this);
     addSubview(top_bar);
@@ -111,6 +114,7 @@ void LayoutManager::setFrames(){
     }
     
     topbar_frame = CRectMake(0, 0, 1, topbar_height);
+
     top_bar->setRelativeFrame(topbar_frame);
     main_view->setRelativeFrame(CRectMake(0, topbar_height, 1 - sidebar_width, 1 - topbar_height));
 ;

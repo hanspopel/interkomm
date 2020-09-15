@@ -21,6 +21,8 @@ TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
         GLDrawRect(CRectMake(0, frame.size.height-1, frame.size.width, 1));
     }));
     
+    
+    
     main_grid = new GLGridScrollView(a_zdb,CRectMake(0, 0, 1, 1));
     main_grid->setGridSize(SizeMake(grid_size_x, 1));
     main_grid->setViewSize(SizeMake(grid_size_x, 1));
@@ -33,13 +35,11 @@ TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
     addSubview(main_grid);
     
     
-    
-    
-    channel_button = new TopBarButton(a_zdb,"audiomux_topbar.png", layout_manager, 0);
+
+    communication_button = new TopBarButton(a_zdb,"audiomux_topbar.png", layout_manager, 0); // legacy name channel_button
     network_settings_button = new TopBarButton(a_zdb,"oscmuxview_icon.png", layout_manager, 1);
     settings_button = new TopBarButton(a_zdb,"settings_topbar.png", layout_manager, 2);
 
-    
     //mixer_toggle = new TopBarButton(a_zdb,"mixer_icon.png", layout_manager, 0);
     
     server_status = new TopBarButton(a_zdb,"solo_icon.png",0,-1,true, false);
@@ -88,12 +88,11 @@ TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
     
     
     
-    main_grid->addSubview(channel_button, 0, 0);
-    main_grid->addSubview(network_settings_button, 1, 0);
-    main_grid->addSubview(settings_button, 2, 0);
+main_grid->addSubview(communication_button, 0, 0);
+main_grid->addSubview(network_settings_button, 1, 0);
+main_grid->addSubview(settings_button, 2, 0);
 
-    main_grid->addSubview(server_status, 3, 0);
-
+main_grid->addSubview(server_status, 3, 0);
     add_server_status_callbacks();
 }
 

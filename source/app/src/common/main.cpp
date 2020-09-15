@@ -60,8 +60,8 @@ int main(int argc, char **argv)
 
             
      
-            
             Interkomm * interkomm = Interkomm::Kit(a_zdb);
+
 
             a_zdb->gl->base_context->addSubview(interkomm);
             //interkomm->app_version_label->setText("123");

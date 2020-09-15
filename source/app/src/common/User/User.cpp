@@ -21,7 +21,8 @@ User::User(){
     
     this->id = ID;
     ID++;
-    cout << "Konstruktor User, ID :" << this->id << endl;
+
+    cout << "Konstruktor User, Name :" << this->name << "ID :" << this->id << endl;
 }
 
 User::~User(){
@@ -37,8 +38,9 @@ User::User(string name){
 
 //    channel = new Channel();
     this->id = ID;
+
     ID++;
-    cout << "Konstruktor User (mit Name), ID :" << id << endl;
+    cout << "Konstruktor User, Name :" << this->name << "ID :" << this->id << endl;
 }
 
 void User::talk(Channel* channel){
