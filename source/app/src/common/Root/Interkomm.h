@@ -17,6 +17,7 @@
 #include "TCPClient.h"
 #include "CallbackManager.h"
 #include "Server.h"
+#include "Mixer.h"
 
 
 class Interkomm : public GLControl  {
@@ -49,7 +50,7 @@ public:
     void save_session();
 
     
-
+    Mixer * mixer;
 
 };
 
