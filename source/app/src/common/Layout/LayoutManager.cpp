@@ -32,11 +32,12 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
     content_view = new GLView(a_zdb);
     main_view->addSubview(content_view);
     
-    channel_view_container = new ChannelViewContainer(a_zdb,content_views);
-    content_view->addSubview(channel_view_container);
+    communication_view = new CommunicationView(a_zdb,content_views);
+    content_view->addSubview(communication_view);
 
-    settings_view = new SettingsView(a_zdb);
-    main_view->addSubview(settings_view);
+    
+//    settings_view = new SettingsView(a_zdb);
+//    main_view->addSubview(settings_view);
 
     
     top_bar = new TopBar(a_zdb,this);
@@ -102,7 +103,7 @@ void LayoutManager::setFrames(){
     
     topbar_frame = CRectMake(0, 0, 1, topbar_height);
     
-    settings_view->setRelativeFrame(CRectMake(1 - (current_side_view == 11) * settings_width, 0, settings_width, 1));
+//    settings_view->setRelativeFrame(CRectMake(1 - (current_side_view == 11) * settings_width, 0, settings_width, 1));
     top_bar->setRelativeFrame(topbar_frame);
     main_view->setRelativeFrame(CRectMake(0, topbar_height, 1 - sidebar_width, 1 - topbar_height));
 ;

@@ -27,8 +27,8 @@ public:
     Interkomm * IKom = 0;
     
     GLGridScrollView * main_grid;
-    
-    TopBarButton * channel_button;
+
+    TopBarButton * communication_button;
 
 
     TopBarButton * server_status;

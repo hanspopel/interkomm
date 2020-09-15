@@ -30,7 +30,7 @@ class Channel{
     
 
     
-    int maxUsers{20};
+//    int maxUsers{20};
 //    User* user{0};
     
 public:

@@ -13,7 +13,7 @@
 #include "TopBar.h"
 #include "TopBarButton.h"
 #include "SettingsView.h"
-#include "ChannelViewContainer.h"
+#include "CommunicationView.h" 
 
 class Interkomm;
 class LayoutManager : public GLControl {
@@ -34,7 +34,7 @@ public:
         
     Interkomm * Ikomm = 0;
     
-    ChannelViewContainer * channel_view_container;
+    CommunicationView * communication_view;
     
     
     void change_main_view(int atag);
@@ -46,7 +46,7 @@ public:
     
 
     
-    SettingsView * settings_view;
+//    SettingsView * settings_view;
 
     
     float topbar_height = 1;

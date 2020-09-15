@@ -61,7 +61,7 @@ int main(int argc, char **argv)
             
      
             
-            Interkomm * studiomux = Interkomm::Kit(a_zdb);
+            Interkomm * studiomux = Interkomm::Kit(a_zdb); 
 
             a_zdb->gl->base_context->addSubview(studiomux);
             //studiomux->app_version_label->setText("123");
