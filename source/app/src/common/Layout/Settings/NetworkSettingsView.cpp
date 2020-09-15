@@ -11,7 +11,7 @@
 //constructor
 NetworkSettingsView::NetworkSettingsView(ZDB * a_zdb, GLViews * content_views, ConnectionManager * a_connection_manager) : ContentView(a_zdb,content_views) {
     
-    backgroundColor = GLTBlue();
+    backgroundColor = GLTGreen();
     connection_manager = a_connection_manager;
     
     

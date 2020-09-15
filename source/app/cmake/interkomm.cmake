@@ -99,7 +99,10 @@ set(UserFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/User/SuperUser.h
   )
 
-
+set(ProfileFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Profile/ProfileView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Profile/ProfileView.h
+  )
 
 set(StructureFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role.cpp
@@ -147,6 +150,8 @@ source_group("Layout" FILES ${LayoutFiles})
 source_group("Layout\\Settings" FILES ${SettingsFiles})
 
 source_group("Layout\\TopBar" FILES ${TopBarFiles})
+source_group("Layout\\Profile" FILES ${ProfileFiles})
+
 source_group("Layout\\TopBar\\Controls" FILES ${TopBarControlFiles})
 
 source_group("Layout\\Communication" FILES ${CommunicationFiles})
@@ -182,6 +187,7 @@ set(SRC
     ${CommunicationFiles}
     ${ChannelFiles}
     ${OverallFiles}
+    ${ProfileFiles}
  )
 
 

@@ -35,7 +35,7 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
     main_view->addSubview(communication_view);
     network_settings_view = new NetworkSettingsView(a_zdb,content_views,Ikomm->connection_manager);
     settings_view = new SettingsView(a_zdb,content_views);
-
+    profile_view = new ProfileView(a_zdb,content_views);
     
     top_bar = new TopBar(a_zdb,this);
     addSubview(top_bar);

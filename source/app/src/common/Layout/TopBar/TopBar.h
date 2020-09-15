@@ -31,6 +31,7 @@ public:
     TopBarButton * communication_button;
     TopBarButton * network_settings_button;
     TopBarButton * settings_button;
+    TopBarButton * profile_button;
 
 
     TopBarButton * server_status;

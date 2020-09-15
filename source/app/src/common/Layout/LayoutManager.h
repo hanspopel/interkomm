@@ -15,6 +15,7 @@
 #include "SettingsView.h"
 #include "NetworkSettingsView.h"
 #include "CommunicationView.h"
+#include "ProfileView.h"
 
 
 class Interkomm;
@@ -36,7 +37,6 @@ public:
         
     Interkomm * Ikomm = 0;
     
-    CommunicationView * communication_view;
     
     
     void change_main_view(int atag);
@@ -46,10 +46,10 @@ public:
 
     void select_content_view(int a_tag);
     
-
+    CommunicationView * communication_view;
     SettingsView * settings_view;
     NetworkSettingsView * network_settings_view;
-
+    ProfileView * profile_view;
 
     
     float topbar_height = 1;
