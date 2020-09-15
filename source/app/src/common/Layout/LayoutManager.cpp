@@ -32,7 +32,7 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
     
 
     communication_view = new CommunicationView(a_zdb,content_views);
-    content_view->addSubview(communication_view);
+    main_view->addSubview(communication_view);
     network_settings_view = new NetworkSettingsView(a_zdb,content_views,Ikomm->connection_manager);
     settings_view = new SettingsView(a_zdb,content_views);
 

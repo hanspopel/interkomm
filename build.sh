@@ -30,7 +30,7 @@ touch $LOGFILE
   echo "#######      Setting Codesign ID to Zerodebug Account" 2>&1 | tee -a $LOGFILE
     # iOS codesigning
     # set to Zerodebug Apple Developer Account Team-ID
-    export CODESIGN_TEAM_ID_NTERKOMM="834XFBML77"
+    export CODESIGN_TEAM_ID_INTERKOMM="834XFBML77"
 
 
     # set to the bundle identifier that has been set for the iOS app on Zerodebug iTunesConnect Account

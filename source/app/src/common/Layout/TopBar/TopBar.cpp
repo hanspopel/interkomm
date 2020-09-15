@@ -35,11 +35,12 @@ TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
     addSubview(main_grid);
     
     
-
-    communication_button = new TopBarButton(a_zdb,"audiomux_topbar.png", layout_manager, 0); // legacy name channel_button
+    
+    communication_button = new TopBarButton(a_zdb,"audiomux_topbar.png", layout_manager, 0); // legacy name channel_button]
+    communication_button->setValue(1);
     network_settings_button = new TopBarButton(a_zdb,"oscmuxview_icon.png", layout_manager, 1);
     settings_button = new TopBarButton(a_zdb,"settings_topbar.png", layout_manager, 2);
-
+    
     //mixer_toggle = new TopBarButton(a_zdb,"mixer_icon.png", layout_manager, 0);
     
     server_status = new TopBarButton(a_zdb,"solo_icon.png",0,-1,true, false);
@@ -53,24 +54,10 @@ TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
     server_status->highlightsWhenTouched = false;
     server_status->addCallbackForControlEvent(new Callback([=](GLEvent * event){
         
-//        if (SMux && SMux->server_manager && SMux->server_manager->servers) {
-//            for (TCPClientConnection * a_server:*(SMux->server_manager)->servers) {
-//                a_server->disconnect();
-//            }
-//            for (TCPClientConnection * a_server:*(SMux->server_manager)->servers) {
-//                if (!a_server->connected->ivalue()) {
-//                    a_server->connect();
-//                    return;
-//                }
-//            }
-//            //SMux->server_manager->servers->at(0)->connect();
-//        }
-        
-//        if (TA && TA->set) {
-//        }
-            server_status->control_title = "Connection Status || v. " + string("0");
 
-            gl->open_property_list(server_status, [=]{
+        server_status->control_title = "Connection Status || v. " + string("0");
+        
+        gl->open_property_list(server_status, [=]{
         });
         
     }), GLControlEventTouchUpInside);
@@ -84,15 +71,12 @@ TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
     };
     gl->register_property("TAConnectionPopup", connection_view);
     
-    
-    
-    
-    
-main_grid->addSubview(communication_button, 0, 0);
-main_grid->addSubview(network_settings_button, 1, 0);
-main_grid->addSubview(settings_button, 2, 0);
 
-main_grid->addSubview(server_status, 3, 0);
+    main_grid->addSubview(communication_button, 0, 0);
+    main_grid->addSubview(network_settings_button, 1, 0);
+    main_grid->addSubview(settings_button, 2, 0);
+    
+    main_grid->addSubview(server_status, 3, 0);
     add_server_status_callbacks();
 }
 
@@ -103,5 +87,5 @@ TopBar::~TopBar() {
 
 void TopBar::add_server_status_callbacks(){
     
- 
+    
 }
