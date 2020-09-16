@@ -15,6 +15,7 @@ Mixer::Mixer(ZDB * a_zdb, ConnectionManager * a_connection_manager) : ALNode(a_z
     tcp_client = connection_manager->tcp_client;
     tcp_server = connection_manager->server;
 
+    al->use_input->setValue(true);
 
     out_buffer_float = (float*)calloc(sizeof(float), 2048);
     

@@ -53,7 +53,6 @@ void ConnectionManager::TCPConnectionAdded(TCPConnection * connection) {
             server_count = servers->size();
             connection_lock->Unlock();
             servers_updated->setValue(1);
-
 }
 
 void ConnectionManager::TCPConnectionRemoved(TCPConnection * connection){

@@ -14,29 +14,21 @@
 #include <iostream>
 #include <vector>
 #include "mss.h"
-#include "Engine.h"
+#include "StructureBase.h"
 
 using namespace std;
 class Role;
 
 typedef vector <Role*> Roles;
 
-class Role: public ZDBObject {
-    string name{};
-    
-    
+class Role: public StructureBase {
+        
 public:
-    static int ID;
-    int id{0};
-    
-    string role_unique_id;
     
     Role(ZDB * a_zdb);
     Role(ZDB * a_zdb, string aname);
     ~Role(){};
     
-    int _id();
-    string _name(){return name;};
     
     static bool save_role(mss * sesion, Role * a_role, ZDB * a_zdb);
     static Role * load_role(mss * sesion, ZDB * a_zdb);

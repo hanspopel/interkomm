@@ -14,7 +14,7 @@
 class SuperUser : public User {
   
 public:
-    SuperUser();
+    SuperUser(ZDB * a_zdb);
     ~SuperUser();
 
     void openUserConfig();

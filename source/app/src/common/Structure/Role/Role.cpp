@@ -8,24 +8,14 @@
 
 #include "Role.h"
 
-Role::Role(ZDB * a_zdb) : ZDBObject(a_zdb){
+Role::Role(ZDB * a_zdb) : StructureBase(a_zdb){
 
-    this->id = ID;
-    cout<<"Konstruktor User ID :"<< this->id << endl;
-    ID++;
 }
 
-Role::Role(ZDB * a_zdb, string a_name): ZDBObject(a_zdb){
-    name = a_name;
-    this->id = ID;
-    cout<<"Konstruktor User ID :"<< this->id << endl;
-    ID++;
-    role_unique_id = get_uuid();
+Role::Role(ZDB * a_zdb, string a_name): StructureBase(a_zdb, a_name){
+
 }
 
-int Role::_id(){
-    return id;
-}
 
 
 bool Role::save_role(mss * session, Role * a_role, ZDB * a_zdb){

@@ -17,14 +17,9 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/BaseControls/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Channels/
-${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/**
-${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/
-${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Browser/
-${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/
 ${RELATIVE_PATH_TO_SOURCE}/src/common//Structure/**
-${RELATIVE_PATH_TO_SOURCE}/src/common//User/**
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/Controls
 
@@ -93,21 +88,40 @@ set(OverallFiles
 
 
 set(UserFiles
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/User.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/User.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/SuperUser.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/SuperUser.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/User.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/User.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/SuperUser.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/SuperUser.h
   )
 
 
 set(StructureFiles
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/InterkommSession.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/InterkommSession.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/StructureBase.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/StructureBase.h
   )
+
+set(RoleFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role/Role.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role/Role.h
+
+  )
+
+
+  set(ChannelFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel/Channel.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel/Channel.h
+  )
+
+    set(SessionFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Session/Session.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Session/Session.h
+  )
+
+      set(WorkspaceFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Workspace/Workspace.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Workspace/Workspace.h
+  )
+
 
   set(SettingsFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.cpp
@@ -179,6 +193,11 @@ source_group("Layout\\Communication\\Channel" FILES ${ChannelFiles})
 
 source_group("User" FILES ${UserFiles})
 source_group("Structure" FILES ${StructureFiles})
+source_group("Structure\\User" FILES ${UserFiles})
+source_group("Structure\\Session" FILES ${SessionFiles})
+source_group("Structure\\Role" FILES ${RoleFiles})
+source_group("Structure\\Workspace" FILES ${WorkspaceFiles})
+source_group("Structure\\Channel" FILES ${ChannelFiles})
 
 include_directories("${PROJECT_BINARY_DIR}")
 
@@ -209,6 +228,10 @@ set(SRC
     ${DebugFiles}
     ${RoleSettingsFiles}
     ${ChannelSettingsFiles}
+    ${RoleFiles}
+    ${ChannelFiles}
+    ${SessionFiles}
+    ${WorkspaceFiles}
  )
 
 

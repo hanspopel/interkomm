@@ -23,7 +23,7 @@ ChannelView::ChannelView(ZDB * a_zdb) : GLView(a_zdb) {
     Channel * channel = new Channel(a_zdb);
 
     for (int i = 0; i<2; i++) {
-        User * a_user = new User("asdasdasd");
+        User * a_user = new User(a_zdb, "asdasdasd");
         channel->channel_users->push_back(a_user);
     }
 

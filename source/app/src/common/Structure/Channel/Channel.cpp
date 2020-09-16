@@ -8,42 +8,22 @@
 
 #include "Channel.h"
 
-Channel::Channel(ZDB * a_zdb) : ZDBObject(a_zdb) {
+Channel::Channel(ZDB * a_zdb) : StructureBase(a_zdb) {
+    channel_users = new Users;
+}
 
-    this->id = ID;
-    cout<<"Konstruktor Channel, ID :" << this->id << endl;
-
-    ID++;
-    
+Channel::Channel(ZDB * a_zdb, string a_name) : StructureBase(a_zdb, a_name) {
     
     channel_users = new Users;
 }
 
-Channel::Channel(ZDB * a_zdb, string a_name) : ZDBObject(a_zdb) {
-
-    name = a_name;
-    this->id = ID;
-    cout<<"Konstruktor Channel, ID :" << this->id << endl;
-
-    ID++;
-    
-    
-    channel_users = new Users;
-}
-
-Channel::Channel(ZDB * a_zdb, vector<Role*>* chanroles)  : ZDBObject(a_zdb){
+Channel::Channel(ZDB * a_zdb, vector<Role*>* chanroles)  : StructureBase(a_zdb){
 
 }
 
 
 void Channel::setuproles(){
 
-}
-
-
-int Channel::_id(){
-
-    return id;
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #include "SettingsView.h"
+#include "Interkomm.h"
 
 
 //constructor
@@ -89,20 +90,11 @@ SettingsView::SettingsView(ZDB * a_zdb, GLViews * content_views) : ContentView(a
         i++;
     }
     
-        
     
-    createDirectoryAtPath("/Settings/");
-    createDirectoryAtPath("/Settings/Profile/");
-    
-    
-    user_roles = new Roles;
-    Role::load_roles("/Settings/Profile/roles.roles",user_roles,zdb);
+    user_roles = Interkomm::Kit()->interkomm_session->_roles();
+    current_channels  = Interkomm::Kit()->interkomm_session->_channels();
     
     roles_view = new RolesView(a_zdb,user_roles,this);
-    
-    current_channels = new Channels();
-    
-    Channel::load_channels("/Settings/Profile/channels.channels",current_channels,zdb);
     channels_view = new ChannelsView(a_zdb,current_channels,this);
     
 }
