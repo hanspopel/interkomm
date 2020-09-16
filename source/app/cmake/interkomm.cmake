@@ -74,7 +74,7 @@ set(CommunicationFiles
     )
 
 
-set(ChannelFiles
+set(ChannelViewFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Channel/ChannelView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Channel/ChannelView.h
     )
@@ -189,7 +189,7 @@ source_group("Layout\\TopBar\\Controls" FILES ${TopBarControlFiles})
 
 source_group("Layout\\Communication" FILES ${CommunicationFiles})
 source_group("Layout\\Communication\\Overall" FILES ${OverallFiles})
-source_group("Layout\\Communication\\Channel" FILES ${ChannelFiles})
+source_group("Layout\\Communication\\Channel" FILES ${ChannelViewFiles})
 
 source_group("User" FILES ${UserFiles})
 source_group("Structure" FILES ${StructureFiles})
@@ -223,7 +223,7 @@ set(SRC
     ${AudioFiles}
     ${StructureFiles}
     ${CommunicationFiles}
-    ${ChannelFiles}
+    ${ChannelViewFiles}
     ${OverallFiles}
     ${DebugFiles}
     ${RoleSettingsFiles}
