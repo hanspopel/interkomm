@@ -20,7 +20,7 @@ ChannelView::ChannelView(ZDB * a_zdb) : GLView(a_zdb) {
 //    channel = a_channel;
     
 
-    Channel * channel = new Channel();
+    Channel * channel = new Channel(a_zdb);
 
     for (int i = 0; i<2; i++) {
         User * a_user = new User("asdasdasd");

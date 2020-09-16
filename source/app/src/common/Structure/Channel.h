@@ -21,7 +21,10 @@
 
 using namespace std;
 
-class Channel{
+class Channel;
+typedef vector <Channel*> Channels;
+
+class Channel : public ZDBObject{
     
     string name;
     int id{0};
@@ -38,18 +41,23 @@ public:
 
     Users * channel_users;
     
-    Channel();
-    Channel(vector<Role*>* chanroles);
+    Channel(ZDB * a_zdb);
+    Channel(ZDB * a_zdb, string a_name);
+    Channel(ZDB * a_zdb, vector<Role*>* chanroles);
 
-    
+    string _name(){return name;};
+
     void setuproles();
     
     int _id();
     
+    static bool save_channel(mss * sesion, Channel * a_channel, ZDB * a_zdb);
+    static Channel * load_channel(mss * sesion, ZDB * a_zdb);
+    
+    static bool save_channels(string path, Channels * a_channels, ZDB * a_zdb);
+    static bool load_channels(string path, Channels * a_channels, ZDB * a_zdb);
+    
+    
 };
-
-typedef vector <Channel*> Channels;
-
-
 
 #endif /* Channel_hpp */

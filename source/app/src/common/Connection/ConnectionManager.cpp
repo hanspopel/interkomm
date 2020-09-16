@@ -47,10 +47,15 @@ ConnectionManager::~ConnectionManager() {
 }
 
 void ConnectionManager::TCPConnectionAdded(TCPConnection * connection) {
-    servers_updated->setValue(true);
+            connection_lock->Lock();
+            Server * server = new Server(zdb, connection, this);
+            servers->push_back(server);
+            server_count = servers->size();
+            connection_lock->Unlock();
+            servers_updated->setValue(1);
+
 }
 
 void ConnectionManager::TCPConnectionRemoved(TCPConnection * connection){
-    servers_updated->setValue(true);
-}
 
+}

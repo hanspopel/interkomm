@@ -99,22 +99,40 @@ set(UserFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/User/SuperUser.h
   )
 
-set(ProfileFiles
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Profile/ProfileView.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Profile/ProfileView.h
-  )
 
 set(StructureFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role.h
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common//Structure/Channel.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/InterkommSession.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/InterkommSession.h
   )
-    set(SettingsFiles
+
+  set(SettingsFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/NetworkSettingsView.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/NetworkSettingsView.h
+  )
+
+  set(RoleSettingsFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Roles/RoleButton.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Roles/RoleButton.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Roles/RolesView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Roles/RolesView.h
+  )
+
+  set(ChannelSettingsFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelButton.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelButton.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelsView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelsView.h
+  )
+
+  set(DebugFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/DebugView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/DebugView.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/NetworkDebugView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/NetworkDebugView.h
   )
 
     set(AudioFiles
@@ -148,9 +166,10 @@ source_group("Connection" FILES ${ConnectionFiles})
 source_group("Layout" FILES ${LayoutFiles})
 
 source_group("Layout\\Settings" FILES ${SettingsFiles})
-
+source_group("Layout\\Settings\\Channels" FILES ${ChannelSettingsFiles})
+source_group("Layout\\Settings\\Roles" FILES ${RoleSettingsFiles})
 source_group("Layout\\TopBar" FILES ${TopBarFiles})
-source_group("Layout\\Profile" FILES ${ProfileFiles})
+source_group("Layout\\Debug" FILES ${DebugFiles})
 
 source_group("Layout\\TopBar\\Controls" FILES ${TopBarControlFiles})
 
@@ -187,7 +206,9 @@ set(SRC
     ${CommunicationFiles}
     ${ChannelFiles}
     ${OverallFiles}
-    ${ProfileFiles}
+    ${DebugFiles}
+    ${RoleSettingsFiles}
+    ${ChannelSettingsFiles}
  )
 
 

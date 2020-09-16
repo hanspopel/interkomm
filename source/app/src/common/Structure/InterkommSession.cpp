@@ -6,58 +6,33 @@
 //  Copyright © 2020 Sascha Arlt. All rights reserved.
 //
 
-#include "Channel.h"
+#include "InterkommSession.h"
 
-Channel::Channel(ZDB * a_zdb) : ZDBObject(a_zdb) {
+InterkommSession::InterkommSession(ZDB * a_zdb) : ZDBObject(a_zdb) {
 
-    this->id = ID;
-    cout<<"Konstruktor Channel, ID :" << this->id << endl;
 
-    ID++;
     
     
-    channel_users = new Users;
 }
 
-Channel::Channel(ZDB * a_zdb, string a_name) : ZDBObject(a_zdb) {
+InterkommSession::InterkommSession(ZDB * a_zdb, string a_name) : ZDBObject(a_zdb) {
 
     name = a_name;
-    this->id = ID;
-    cout<<"Konstruktor Channel, ID :" << this->id << endl;
-
-    ID++;
     
-    
-    channel_users = new Users;
-}
-
-Channel::Channel(ZDB * a_zdb, vector<Role*>* chanroles)  : ZDBObject(a_zdb){
-
 }
 
 
-void Channel::setuproles(){
-
-}
-
-
-int Channel::_id(){
-
-    return id;
-}
-
-
-bool Channel::save_channel(mss * session, Channel * a_channel, ZDB * a_zdb){
+bool InterkommSession::save_session(mss * session, InterkommSession * a_channel, ZDB * a_zdb){
     session->write_string(a_channel->_name());
     return false;
 }
 
-Channel * Channel::load_channel(mss * session, ZDB * a_zdb){
-    Channel * a_channel = new Channel(a_zdb,session->read_string());
+InterkommSession * InterkommSession::load_session(mss * session, ZDB * a_zdb){
+    InterkommSession * a_channel = new InterkommSession(a_zdb,session->read_string());
     return a_channel;
 }
 
-bool Channel::save_channels(string path, Channels * a_channels, ZDB * a_zdb){
+bool InterkommSession::save_sessions(string path, InterkommSessions * a_channels, ZDB * a_zdb){
     
     if (a_zdb->gl->in_background->value()) {
         return false;
@@ -68,8 +43,8 @@ bool Channel::save_channels(string path, Channels * a_channels, ZDB * a_zdb){
     session->write_string(a_name);
     session->write_int(static_cast<int>(a_channels->size()));
     
-    for (Channel * a_channel:*a_channels) {
-        save_channel(session, a_channel, a_zdb);
+    for (InterkommSession * a_channel:*a_channels) {
+        save_session(session, a_channel, a_zdb);
     }
     
     a_zdb->dispatch->on_default([=]{
@@ -79,7 +54,7 @@ bool Channel::save_channels(string path, Channels * a_channels, ZDB * a_zdb){
     
     return true;
 }
-bool Channel::load_channels(string path, Channels * a_channels, ZDB * a_zdb){
+bool InterkommSession::load_sessions(string path, InterkommSessions * a_channels, ZDB * a_zdb){
     
     
     unsigned long length = 0;
@@ -92,7 +67,7 @@ bool Channel::load_channels(string path, Channels * a_channels, ZDB * a_zdb){
         int a_size = session->read_int();
         
         for (int i = 0; i<a_size; i++) {
-            a_channels->push_back(Channel::load_channel(session, a_zdb));
+            a_channels->push_back(InterkommSession::load_session(session, a_zdb));
         }
         
         delete session;

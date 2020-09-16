@@ -45,7 +45,9 @@ void Interkomm::init(){
     load_save_lock = new CThreadMutex;
     
     createDirectoryAtPath("/Sessions/");
-    
+    createDirectoryAtPath("/Settings/");
+
+
     borderColor = GLBlack();
     borderColorHighlight = GLBlack();
     borderColorOn = GLBlack();
@@ -60,20 +62,18 @@ void Interkomm::init(){
     }));
 
     connection_manager = new ConnectionManager(zdb, NetworkInfo::can_process_audio | NetworkInfo::forbid_loopback, "_interkomm_dns._tcp");
-
+    callback_manager = connection_manager->tcp_client->cb_manager;
+    connection_manager->tcp_client->device_id = get_uuid();
 
     
     zdb->gl->block_notch->setValue(true);
     zdb->gl->block_round_corner_edges->setValue(true);
-    
 
 
     main_view = new MainView(zdb);
     addSubview(main_view);
     
-    
-    
-    
+        
     gl->addTimerWithInterval(10, -1, [=]{
         save_session();
     });

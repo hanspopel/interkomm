@@ -12,7 +12,7 @@
 #include "Engine.h"
 #include "ServerView.h"
 #include "GLGridScrollView.h"
-
+class Interkomm;
 class ConnectionView : public GLView {
 public:
     ConnectionView(ZDB * a_zdb);
@@ -20,6 +20,8 @@ public:
     
     ServerViews * server_views;
     GLGridScrollView * connection_grid;
+    
+    Interkomm * IKomm = 0;
     
     int update();
 };

@@ -33,10 +33,9 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
 
     communication_view = new CommunicationView(a_zdb,content_views);
     main_view->addSubview(communication_view);
-    network_settings_view = new NetworkSettingsView(a_zdb,content_views,Ikomm->connection_manager);
+    debug_view = new DebugView(a_zdb,content_views);
     settings_view = new SettingsView(a_zdb,content_views);
-    profile_view = new ProfileView(a_zdb,content_views);
-    
+
     top_bar = new TopBar(a_zdb,this);
     addSubview(top_bar);
     
@@ -59,17 +58,14 @@ LayoutManager::~LayoutManager() {
 }
 
 
-void LayoutManager::change_main_view(int atag){
-    if (gl->console->superview) {
-        gl->close_console();
-    }
-}
-
 void LayoutManager::setFrame(CRect aFrame) {
     GLView::setFrame(aFrame);
 }
 
 void LayoutManager::select_content_view(int a_tag){
+    if (gl->console->superview) {
+        gl->close_console();
+    }
     
     int btn_tag = a_tag;
 

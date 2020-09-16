@@ -16,7 +16,7 @@ OverallView::OverallView(ZDB * a_zdb) : GLView(a_zdb) {
     
  //   channel_views = new ChannelViews();
     
-    Channel * a_channel = new Channel();
+    Channel * a_channel = new Channel(a_zdb);
     Channels * channels = new Channels();
     
     
@@ -27,7 +27,7 @@ OverallView::OverallView(ZDB * a_zdb) : GLView(a_zdb) {
     
     
     for (int i = 0; i<5; i++) {
-        a_channel = new Channel();
+        a_channel = new Channel(a_zdb);
         channels->push_back(a_channel);
     }
     

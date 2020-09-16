@@ -24,11 +24,7 @@ public:
     ConnectionManager(ZDB * a_zdb, int flags, string opt_dns_search_term);
     ~ConnectionManager();
     
-//    TCPClientManager * client_manager;
-//    TCPServerManager * server_manager;
-
     TCPServer * server;
-//    TCPClient * client;
 
     void TCPConnectionAdded(TCPConnection * connection);
     void TCPConnectionRemoved(TCPConnection * connection);
@@ -36,6 +32,11 @@ public:
     
     Parameter * servers_updated;
     Parameter * clients_updated;
+    
+    long server_count = 0;
+    int server_connected_count = 0;
+    
+
 };
 
 typedef vector <ConnectionManager*> ConnectionManagers;
