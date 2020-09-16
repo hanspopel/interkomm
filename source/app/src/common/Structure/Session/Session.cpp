@@ -12,7 +12,7 @@ Session::Session(ZDB * a_zdb) : StructureBase(a_zdb) {
     init();
 }
 
-Session::Session(ZDB * a_zdb, string a_name) : StructureBase(a_zdb) {
+Session::Session(ZDB * a_zdb, string a_name) : StructureBase(a_zdb, a_name) {
     init();
 }
 
