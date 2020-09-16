@@ -100,8 +100,8 @@ Session * Session::load_session(string path, ZDB * a_zdb){
         string a_session_name = session->read_string();
         Session * current_session = new Session(a_zdb, a_session_name);
         
-        Role::load_roles("/Sessions/"+  a_session_name  + "/" + a_session_name + ".roles",current_session->roles,a_zdb);
-        Channel::load_channels("/Sessions/"+  a_session_name  + "/" + a_session_name + ".channels",current_session->channels,a_zdb);
+        Role::load_roles(current_session,a_zdb);
+        Channel::load_channels(current_session,a_zdb);
         
         if (current_session) {
             return current_session;

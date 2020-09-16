@@ -11,14 +11,15 @@
 
 
 User::User(ZDB * a_zdb) : StructureBase(a_zdb){
-
-
+    init();
 }
 
 User::User(ZDB * a_zdb, string a_name) : StructureBase(a_zdb, a_name){
-
+    init();
 }
 
+void User::init(){
+}
 
 void User::talk(Channel* channel){
 

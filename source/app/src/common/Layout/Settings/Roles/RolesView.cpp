@@ -8,6 +8,7 @@
 
 #include "RolesView.h"
 #include "SettingsView.h"
+#include "Interkomm.h"
 
 //constructor
 RolesView::RolesView(ZDB * a_zdb, Roles * a_roles, SettingsView * a_settings_view) : GLView(a_zdb) {
@@ -83,7 +84,7 @@ void RolesView::add_role(){
     gl->get_input("New Pad Name", [=]{
         if (gl->last_input != "") {
             user_roles->push_back(new Role(zdb, gl->last_input));
-            Role::save_roles("/Settings/Profile/roles.roles",user_roles, zdb);
+            Role::save_roles(Interkomm::Kit()->interkomm_session, zdb);
             roles_scroll_view->setGridSize(SizeMake(1, user_roles->size()));
             roles_scroll_view->loadVisibleGrid();
         }
@@ -103,6 +104,6 @@ void RolesView::delete_role(Role * a_delete_role){
         }
         a_counter++;
     }
-    Role::save_roles("/Settings/Profile/roles.roles",user_roles, zdb);
+    Role::save_roles(Interkomm::Kit()->interkomm_session, zdb);
     roles_scroll_view->loadVisibleGrid();
 }

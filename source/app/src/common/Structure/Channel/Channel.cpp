@@ -7,6 +7,7 @@
 //
 
 #include "Channel.h"
+#include "Interkomm.h"
 
 Channel::Channel(ZDB * a_zdb) : StructureBase(a_zdb) {
     channel_users = new Users;
@@ -37,33 +38,33 @@ Channel * Channel::load_channel(mss * session, ZDB * a_zdb){
     return a_channel;
 }
 
-bool Channel::save_channels(string path, Channels * a_channels, ZDB * a_zdb){
+bool Channel::save_channels(Session * a_session, ZDB * a_zdb){
     
     if (a_zdb->gl->in_background->value()) {
         return false;
     }
-    
+        
     mss * session = new mss(0001);
-    string a_name = "asda";
-    session->write_string(a_name);
-    session->write_int(static_cast<int>(a_channels->size()));
+    string session_name = a_session->_name();
+    session->write_string(session_name);
+    session->write_int(static_cast<int>(a_session->_channels()->size()));
     
-    for (Channel * a_channel:*a_channels) {
+    for (Channel * a_channel:*a_session->_channels()) {
         save_channel(session, a_channel, a_zdb);
     }
     
     a_zdb->dispatch->on_default([=]{
-        writeDataWithLengthToPath(path, session->session_content, session->write_offset);
+        writeDataWithLengthToPath(path_for_session(a_session, Channel::get_extension()), session->session_content, session->write_offset);
         delete session;
     });
     
     return true;
 }
-bool Channel::load_channels(string path, Channels * a_channels, ZDB * a_zdb){
+bool Channel::load_channels(Session * a_session, ZDB * a_zdb){
     
     
     unsigned long length = 0;
-    void * content = loadDataAtPath(path, &length);
+    void * content = loadDataAtPath(path_for_session(a_session, Channel::get_extension()), &length);
     
     if (content) {
         mss * session = new mss((char*)content, (int)length);
@@ -72,7 +73,7 @@ bool Channel::load_channels(string path, Channels * a_channels, ZDB * a_zdb){
         int a_size = session->read_int();
         
         for (int i = 0; i<a_size; i++) {
-            a_channels->push_back(Channel::load_channel(session, a_zdb));
+            a_session->_channels()->push_back(Channel::load_channel(session, a_zdb));
         }
         
         delete session;

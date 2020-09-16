@@ -11,12 +11,13 @@
 
 
 #include "Engine.h"
-
+#include "mss.h"
+class Session;
 class StructureBase : public ZDBObject{
     string name;
     string unique_id;
 public:
-    
+
     StructureBase(ZDB * a_zdb);
     StructureBase(ZDB * a_zdb, string a_name);
     
@@ -25,6 +26,8 @@ public:
 
     string _id(){return unique_id;};
     void id_(string an_uid){unique_id = an_uid;};
+    
+    static string path_for_session(Session * a_session, string extension);
     
 };
 

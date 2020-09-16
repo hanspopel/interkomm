@@ -28,7 +28,7 @@ class Session : public StructureBase{
     Roles * roles;
     
 public:
-    
+
     Session(ZDB * a_zdb);
     Session(ZDB * a_zdb, string a_name);
 
@@ -43,6 +43,7 @@ public:
     static Session * load_session(string path, ZDB * a_zdb);
     static Session * load_latest_session(ZDB * a_zdb);
 
+    static string get_extension(){return "session";};
 
 };
 

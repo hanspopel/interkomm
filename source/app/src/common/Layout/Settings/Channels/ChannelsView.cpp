@@ -79,7 +79,7 @@ ChannelsView::ChannelsView(ZDB * a_zdb, Channels * a_channels, SettingsView * a_
         string new_channel_name = (it++)->AsString();
 
         current_channels->push_back(new Channel(zdb, new_channel_name));
-        Channel::save_channels("/Settings/Profile/channels.channels",current_channels, zdb);
+        Channel::save_channels(Interkomm::Kit()->interkomm_session, zdb);
         channels_scroll_view->setGridSize(SizeMake(1, current_channels->size()));
         channels_scroll_view->loadVisibleGrid();
         
@@ -102,7 +102,7 @@ ChannelsView::ChannelsView(ZDB * a_zdb, Channels * a_channels, SettingsView * a_
             }
             a_counter++;
         }
-        Channel::save_channels("/Settings/Profile/channels.channels",current_channels, zdb);
+        Channel::save_channels(Interkomm::Kit()->interkomm_session, zdb);
         channels_scroll_view->loadVisibleGrid();
         
     });
@@ -123,7 +123,7 @@ void ChannelsView::add_channel(){
         if (gl->last_input != "") {
             string channel_name = gl->last_input;
             current_channels->push_back(new Channel(zdb, channel_name));
-            Channel::save_channels("/Settings/Profile/channels.channels",current_channels, zdb);
+            Channel::save_channels(Interkomm::Kit()->interkomm_session, zdb);
             channels_scroll_view->setGridSize(SizeMake(1, current_channels->size()));
             channels_scroll_view->loadVisibleGrid();
             
@@ -153,7 +153,7 @@ void ChannelsView::delete_channel(Channel * a_delete_channel){
         }
         a_counter++;
     }
-    Channel::save_channels("/Settings/Profile/channels.channels",current_channels, zdb);
+    Channel::save_channels(Interkomm::Kit()->interkomm_session, zdb);
     channels_scroll_view->loadVisibleGrid();
     
     char buffer[4096];

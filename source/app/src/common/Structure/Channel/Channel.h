@@ -22,12 +22,12 @@
 using namespace std;
 
 class Channel;
+class Session;
 typedef vector <Channel*> Channels;
 
 class Channel : public StructureBase{
     
     vector<Role*> channelroles;
-    
 public:
 
     Users * channel_users;
@@ -41,10 +41,10 @@ public:
     static bool save_channel(mss * sesion, Channel * a_channel, ZDB * a_zdb);
     static Channel * load_channel(mss * sesion, ZDB * a_zdb);
     
-    static bool save_channels(string path, Channels * a_channels, ZDB * a_zdb);
-    static bool load_channels(string path, Channels * a_channels, ZDB * a_zdb);
+    static bool save_channels(Session * a_session, ZDB * a_zdb);
+    static bool load_channels(Session * a_session, ZDB * a_zdb);
     
-    
+    static string get_extension(){return "channels";};
 };
 
 #endif /* Channel_hpp */
