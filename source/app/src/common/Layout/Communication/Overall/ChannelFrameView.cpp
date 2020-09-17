@@ -35,7 +35,7 @@ ChannelFrameView::ChannelFrameView(ZDB * a_zdb, Channel * a_channel, Communicati
     a_frame_return_talk_button  = new FrameReturnTalkButton(a_zdb);
     a_frame_channel_view_button = new FrameChannelViewButton(a_zdb, channel, com_view);
     a_frame_channel_view_button->addCallbackForControlEvent(new Callback([=](GLEvent *event){
-        com_view->enter_channel_view(tag);
+        //com_view->enter_channel_view(tag);
     }), GLControlEventTouchUpInside);
     
     main_grid->addSubview(a_frame_channel_talk_button, 0, 0);
