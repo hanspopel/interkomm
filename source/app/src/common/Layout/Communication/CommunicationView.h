@@ -30,7 +30,7 @@ public:
     ~CommunicationView();
     
 //    GLViews * content_views;
-
+    void enter_detail_view(Channel * channel);
     
 //    ChannelViews * channel_views;
 //

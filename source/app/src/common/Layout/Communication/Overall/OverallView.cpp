@@ -31,14 +31,14 @@ OverallView::OverallView(ZDB * a_zdb, CommunicationView * a_com_view) : GLView(a
     
     channel_button_map = new ChannelButtonMap();
     channel_frame_views = new ChannelFrameViews();
-    a_channel_frame_view = new ChannelFrameView( a_zdb, channels->at(0));
+    a_channel_frame_view = new ChannelFrameView(a_zdb, channels->at(0), com_view);
     
 
     float frame_x{0};
     float frame_y{0};
     
     for(int i{0}; i < channels->size(); i++){
-        a_channel_frame_view = new ChannelFrameView( a_zdb, channels->at(i));
+        a_channel_frame_view = new ChannelFrameView( a_zdb, channels->at(i), com_view);
         channel_frame_views->push_back(a_channel_frame_view);
         (channel_frame_views->at(i))->setRelativeFrame(CRect(frame_x, frame_y, 0.2, 0.4));
         addSubview(channel_frame_views->at(i));
