@@ -94,6 +94,16 @@ set(OverallFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Overall/ChannelFrameView.h
     )
 
+set(ChannelFrameFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Overall/ChannelFrame/FrameChannelTalkButton.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Overall/ChannelFrame/FrameChannelTalkButton.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Overall/ChannelFrame/FrameReturnTalkButton.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Overall/ChannelFrame/FrameReturnTalkButton.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Overall/ChannelFrame/FrameChannelViewButton.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Overall/ChannelFrame/FrameChannelViewButton.h
+    )
+
+
 
 set(UserFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/User.cpp
@@ -211,6 +221,8 @@ source_group("Layout\\TopBar\\Controls" FILES ${TopBarControlFiles})
 
 source_group("Layout\\Communication" FILES ${CommunicationFiles})
 source_group("Layout\\Communication\\Overall" FILES ${OverallFiles})
+source_group("Layout\\Communication\\Overall\\ChannelFrame" FILES ${ChannelFrameFiles})
+source_group("Layout\\Communication\\Channel" FILES ${ChannelFiles})
 source_group("Layout\\Communication\\Channel" FILES ${ChannelViewFiles})
 
 source_group("User" FILES ${UserFiles})
@@ -247,6 +259,8 @@ set(SRC
     ${CommunicationFiles}
     ${ChannelViewFiles}
     ${OverallFiles}
+    ${ChannelFrameFiles}
+    ${ProfileFiles}
     ${DebugFiles}
     ${RoleSettingsFiles}
     ${ChannelSettingsFiles}

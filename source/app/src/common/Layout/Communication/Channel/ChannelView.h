@@ -15,16 +15,18 @@
 #include "Channel.h"
 #include "dbButton.h"
 
-
+class CommunicationView;
 class ChannelView : public GLView {
 public:
-    ChannelView(ZDB * a_zdb);
+    ChannelView(ZDB * a_zdb, CommunicationView * a_com_view);
     ~ChannelView();
 
     Channel * channel;
     GLGridScrollView * user_scroll_view;
     UserViewDict * user_view_map;
     
+    CommunicationView * com_view = 0;
+
     
     dbButton * talk_button;
 };

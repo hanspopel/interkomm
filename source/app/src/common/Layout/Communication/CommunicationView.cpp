@@ -10,19 +10,19 @@
 
 
 //constructor
-CommunicationView::CommunicationView(ZDB * a_zdb, GLViews * content_views) : ContentView(a_zdb, content_views) {// legacy: ChannelViewContainer
-    
-    
-    overall_view = new OverallView(a_zdb);
-    channel_view = new ChannelView(a_zdb);
-    
-    
-    addSubview(overall_view);
- //   addSubview(channel_view);
+CommunicationView::CommunicationView(ZDB * a_zdb, GLViews * content_views) : ContentView(a_zdb, content_views){
     
     backgroundColor = GLTBlue();
     
- //   channel_views = new ChannelViews(); // TODO -> OverallView
+    overall_view = new OverallView(a_zdb, this);
+    addSubview(overall_view);
+    
+    a_channel_view = new ChannelView(a_zdb, this);
+
+//    int tag = 0;
+//    enter_channel_view(tag);
+    
+    
 //
 //    Channels * channels = new Channels();
 //
@@ -92,8 +92,28 @@ CommunicationView::CommunicationView(ZDB * a_zdb, GLViews * content_views) : Con
     
 }
 
+void CommunicationView::enter_detail_view(Channel * channel){
+    
+ overall_view->animateFrame(CRectMake(-1, 0.3, 1, 0.7), 0.2,
+ false, false, false, 0, 0);
+ a_channel_view->animateFrame(CRectMake(0, 0.3, 1, 0.7), 0.2,
+ false, false, false, 0, 0);
+}
+
+void CommunicationView::back_to_overall_view(){
+        
+    overall_view->animateFrame(CRectMake(0, 0.3, 1, 0.7), 0.2,
+    false, false, false, 0, 0);
+    a_channel_view->animateFrame(CRectMake(1, 0.3, 1, 0.7), 0.2,
+    false, false, false, 0, 0);
+
+    }
+
 //deconstructor
 CommunicationView::~CommunicationView() {
     
+    delete overall_view;
+    delete a_channel_view;
 }
+
 

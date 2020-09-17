@@ -10,38 +10,42 @@
 
 
 //constructor
-OverallView::OverallView(ZDB * a_zdb) : GLView(a_zdb) {
+OverallView::OverallView(ZDB * a_zdb, CommunicationView * a_com_view) : GLView(a_zdb) {
     
     tag = 0;
-    
+    com_view = a_com_view;
  //   channel_views = new ChannelViews();
     
     Channel * a_channel = new Channel(a_zdb);
     Channels * channels = new Channels();
-    
     
     for (int i = 0; i<2; i++) {
         User * a_user = new User(a_zdb, "asdasdasd");
         a_channel->_users()->push_back(a_user);
     }
     
-    
     for (int i = 0; i<5; i++) {
         a_channel = new Channel(a_zdb);
         channels->push_back(a_channel);
     }
     
-        
     channel_button_map = new ChannelButtonMap();
+    channel_frame_views = new ChannelFrameViews();
+    a_channel_frame_view = new ChannelFrameView( a_zdb, channels->at(0));
+    
 
-//    ChannelFrameView channel_frame_view(a_zdb, a_channel);
+    float frame_x{0};
+    float frame_y{0};
+    
+    for(int i{0}; i < channels->size(); i++){
+        a_channel_frame_view = new ChannelFrameView( a_zdb, channels->at(i));
+        channel_frame_views->push_back(a_channel_frame_view);
+        (channel_frame_views->at(i))->setRelativeFrame(CRect(frame_x, frame_y, 0.2, 0.4));
+        addSubview(channel_frame_views->at(i));
+        frame_x = frame_x + 0.25;
+    }
+        
 
-    channel_frame_view = new ChannelFrameView(a_zdb, a_channel);
-    
-    
-    
-    addSubview(channel_frame_view);
-    
 //    channel_scroll_view = new GLGridScrollView(a_zdb);
 //    channel_scroll_view->setRelativeFrame(CRectMake(0, 0, 1, 0.2));
 //    channel_scroll_view->setGridSize(SizeMake(20, 1));
@@ -137,5 +141,16 @@ OverallView::OverallView(ZDB * a_zdb) : GLView(a_zdb) {
 
 //deconstructor
 OverallView::~OverallView(){
-    delete channel_frame_view;
+    
+    delete a_channel_frame_view;
+    
+    int a_size = static_cast<int>(channel_frame_views->size()) - 1;
+    
+    for(int i = a_size; i>=0; i--){
+        ChannelFrameView * a_view = channel_frame_views->at(i);
+        channel_frame_views->erase(channel_frame_views->begin() + i);
+        delete a_view;
+    }
+    
+    delete channel_frame_views;
 }
