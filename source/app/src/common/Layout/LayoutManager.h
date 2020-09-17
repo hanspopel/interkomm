@@ -12,10 +12,11 @@
 #include "GLControl.h"
 #include "TopBar.h"
 #include "TopBarButton.h"
-#include "SettingsView.h"
-#include "NetworkSettingsView.h"
+#include "DebugView.h"
 #include "CommunicationView.h"
-#include "ProfileView.h"
+#include "SettingsView.h"
+
+typedef unordered_map <int, GLView*> ContentViewMap;
 
 
 class Interkomm;
@@ -39,7 +40,6 @@ public:
     
     
     
-    void change_main_view(int atag);
     
     TopBarButtons * layout_selection_buttons;
     GLViews * content_views;
@@ -47,9 +47,8 @@ public:
     void select_content_view(int a_tag);
     
     CommunicationView * communication_view;
+    DebugView * debug_view;
     SettingsView * settings_view;
-    NetworkSettingsView * network_settings_view;
-    ProfileView * profile_view;
 
     
     float topbar_height = 1;

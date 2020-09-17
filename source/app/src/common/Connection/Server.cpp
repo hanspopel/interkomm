@@ -54,6 +54,7 @@ Server::~Server() {
 
 void Server::add_callbacks() {
     
+    
     tcp_port->cb_manager->add_callback("/request/device_info", [=] (const osc::ReceivedMessage &m) {
 
         Server * ptr = this;

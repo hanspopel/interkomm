@@ -16,16 +16,16 @@ OverallView::OverallView(ZDB * a_zdb, CommunicationView * a_com_view) : GLView(a
     com_view = a_com_view;
  //   channel_views = new ChannelViews();
     
-    Channel * a_channel = new Channel();
+    Channel * a_channel = new Channel(a_zdb);
     Channels * channels = new Channels();
     
     for (int i = 0; i<2; i++) {
-        User * a_user = new User("asdasdasd");
+        User * a_user = new User(a_zdb, "asdasdasd");
         a_channel->channel_users->push_back(a_user);
     }
     
     for (int i = 0; i<5; i++) {
-        a_channel = new Channel();
+        a_channel = new Channel(a_zdb);
         channels->push_back(a_channel);
     }
     

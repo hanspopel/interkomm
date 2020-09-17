@@ -9,13 +9,13 @@
 #include "SuperUser.h"
 
 
-SuperUser::SuperUser(){
+SuperUser::SuperUser(ZDB * a_zdb) : User(a_zdb){
 
-//    this->id = ID;
-    cout<<"Konstruktor SuperUser, ID :"<< this->_id() << endl;
-//    ID++;
 }
 
+SuperUser::~SuperUser(){
+
+}
 
 void SuperUser::openUserConfig(){
 
@@ -30,6 +30,4 @@ void SuperUser::setRoles(){
     
 }
 
-SuperUser::~SuperUser(){
-    std::cout << "\n Der (Super)user " << *this << "an der Speicherstelle  " << this << " wurde wieder entfernt \n";
-}
+

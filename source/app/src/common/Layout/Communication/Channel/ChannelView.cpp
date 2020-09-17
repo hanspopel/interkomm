@@ -20,10 +20,10 @@ ChannelView::ChannelView(ZDB * a_zdb, CommunicationView * a_com_view) : GLView(a
 //    channel = a_channel;
     
 
-    Channel * channel = new Channel();
+    Channel * channel = new Channel(a_zdb);
 
     for (int i = 0; i<2; i++) {
-        User * a_user = new User("asdasdasd");
+        User * a_user = new User(a_zdb, "asdasdasd");
         channel->channel_users->push_back(a_user);
     }
 

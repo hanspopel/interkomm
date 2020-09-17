@@ -17,14 +17,9 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Root/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/BaseControls/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Channels/
-${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/**
-${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/
-${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Browser/
-${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/
 ${RELATIVE_PATH_TO_SOURCE}/src/common//Structure/**
-${RELATIVE_PATH_TO_SOURCE}/src/common//User/**
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/Controls
 
@@ -79,7 +74,7 @@ set(CommunicationFiles
     )
 
 
-set(ChannelFiles
+set(ChannelViewFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Channel/ChannelView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Channel/ChannelView.h
     )
@@ -103,28 +98,67 @@ set(ChannelFrameFiles
 
 
 set(UserFiles
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/User.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/User.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/SuperUser.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/User/SuperUser.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/User.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/User.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/Profile.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/Profile.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/SuperUser.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/SuperUser.h
   )
 
-set(ProfileFiles
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Profile/ProfileView.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Profile/ProfileView.h
-  )
 
 set(StructureFiles
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common//Structure/Channel.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/StructureBase.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/StructureBase.h
   )
-    set(SettingsFiles
+
+set(RoleFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role/Role.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Role/Role.h
+
+  )
+
+
+  set(ChannelFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel/Channel.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Channel/Channel.h
+  )
+
+    set(SessionFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Session/Session.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Session/Session.h
+  )
+
+      set(WorkspaceFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Workspace/Workspace.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/Workspace/Workspace.h
+  )
+
+
+  set(SettingsFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/NetworkSettingsView.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/NetworkSettingsView.h
+  )
+
+  set(RoleSettingsFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Roles/RoleButton.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Roles/RoleButton.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Roles/RolesView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Roles/RolesView.h
+  )
+
+  set(ChannelSettingsFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelButton.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelButton.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelsView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelsView.h
+  )
+
+  set(DebugFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/DebugView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/DebugView.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/NetworkDebugView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/NetworkDebugView.h
   )
 
     set(AudioFiles
@@ -158,19 +192,29 @@ source_group("Connection" FILES ${ConnectionFiles})
 source_group("Layout" FILES ${LayoutFiles})
 
 source_group("Layout\\Settings" FILES ${SettingsFiles})
-
+source_group("Layout\\Settings\\Channels" FILES ${ChannelSettingsFiles})
+source_group("Layout\\Settings\\Roles" FILES ${RoleSettingsFiles})
 source_group("Layout\\TopBar" FILES ${TopBarFiles})
-source_group("Layout\\Profile" FILES ${ProfileFiles})
+source_group("Layout\\Debug" FILES ${DebugFiles})
 
 source_group("Layout\\TopBar\\Controls" FILES ${TopBarControlFiles})
 
 source_group("Layout\\Communication" FILES ${CommunicationFiles})
 source_group("Layout\\Communication\\Overall" FILES ${OverallFiles})
+<<<<<<< HEAD
 source_group("Layout\\Communication\\Overall\\ChannelFrame" FILES ${ChannelFrameFiles})
 source_group("Layout\\Communication\\Channel" FILES ${ChannelFiles})
+=======
+source_group("Layout\\Communication\\Channel" FILES ${ChannelViewFiles})
+>>>>>>> af6114a8bc8a81b8e584ced0f9f29b35b4c18ce2
 
 source_group("User" FILES ${UserFiles})
 source_group("Structure" FILES ${StructureFiles})
+source_group("Structure\\User" FILES ${UserFiles})
+source_group("Structure\\Session" FILES ${SessionFiles})
+source_group("Structure\\Role" FILES ${RoleFiles})
+source_group("Structure\\Workspace" FILES ${WorkspaceFiles})
+source_group("Structure\\Channel" FILES ${ChannelFiles})
 
 include_directories("${PROJECT_BINARY_DIR}")
 
@@ -196,10 +240,20 @@ set(SRC
     ${AudioFiles}
     ${StructureFiles}
     ${CommunicationFiles}
-    ${ChannelFiles}
+    ${ChannelViewFiles}
     ${OverallFiles}
+<<<<<<< HEAD
     ${ChannelFrameFiles}
     ${ProfileFiles}
+=======
+    ${DebugFiles}
+    ${RoleSettingsFiles}
+    ${ChannelSettingsFiles}
+    ${RoleFiles}
+    ${ChannelFiles}
+    ${SessionFiles}
+    ${WorkspaceFiles}
+>>>>>>> af6114a8bc8a81b8e584ced0f9f29b35b4c18ce2
  )
 
 

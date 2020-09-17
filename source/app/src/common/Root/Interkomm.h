@@ -18,37 +18,31 @@
 #include "CallbackManager.h"
 #include "Server.h"
 #include "Mixer.h"
+#include "Session.h"
+#include "Profile.h"
 
 
 class Interkomm : public GLControl  {
 public:
+    
     Interkomm(ZDB * a_zdb);
     ~Interkomm();
     
     MainView * main_view = 0;
-    
-    CThreadMutex * load_save_lock;
-    
+        
     TCPCallbackManager * callback_manager;
     ConnectionManager * connection_manager;
+        
+    bool restore();
     
-    
-    void save(string path);
-    bool load(string path);
-    
-    
-    Parameter * connected_to_server = 0;
-
+    Session * interkomm_session = 0;
+    Profile * interkomm_profile = 0;
     
     static Interkomm* Kit(ZDB * a_zdb = 0);
     void operator=(Interkomm const&){};
     static Interkomm* m_pInstance;
     
     void init();
-    void setFrame(CRect aFrame);
-    
-    void save_session();
-
     
     Mixer * mixer;
 
