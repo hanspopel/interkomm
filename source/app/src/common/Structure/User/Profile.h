@@ -11,7 +11,8 @@
 
 class Profile : public User {
 public :
-
+    bool just_created = false;
+    
     Profile(ZDB * a_zdb);
     Profile(ZDB * a_zd, string name);
     void init();

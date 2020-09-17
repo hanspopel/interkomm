@@ -8,23 +8,20 @@
 
 #ifndef __Engine__ChannelsView__
 #define __Engine__ChannelsView__
-#include "Engine.h"
-#include "ContentView.h"
-#include "GLView.h"
+#include "SettingsDetailBase.h"
 #include "Channel.h"
 #include "GLGridScrollView.h"
 #include "ChannelButton.h"
+#include "ChannelDialog.h"
 
 typedef unordered_map <string, ChannelButton*> ChannelSetButtonMap;
 
 class SettingsView;
-class ChannelsView : public GLView {
+class ChannelsView : public SettingsDetailBase {
 public:
     ChannelsView(ZDB * a_zdb, Channels * a_channels, SettingsView * a_settings_view);
     ~ChannelsView();
-    
-    SettingsView * settings_view;
-    
+        
     ChannelSetButtonMap * channel_button_map;
     
     GLGridScrollView * channels_scroll_view;

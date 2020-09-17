@@ -8,9 +8,8 @@
 
 #ifndef __Engine__RolesView__
 #define __Engine__RolesView__
-#include "Engine.h"
-#include "ContentView.h"
-#include "GLView.h"
+
+#include "SettingsDetailBase.h"
 #include "Role.h"
 #include "GLGridScrollView.h"
 #include "RoleButton.h"
@@ -18,13 +17,11 @@
 typedef unordered_map <string, RoleButton*> RoleButtonMap;
 
 class SettingsView;
-class RolesView : public GLView {
+class RolesView : public SettingsDetailBase {
 public:
     RolesView(ZDB * a_zdb, Roles * a_roles, SettingsView * a_settings_view);
     ~RolesView();
-    
-    SettingsView * settings_view;
-    
+        
     RoleButtonMap * role_button_map;
     
     GLGridScrollView * roles_scroll_view;

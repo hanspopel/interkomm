@@ -15,9 +15,7 @@
 #include <dns_sd.h>
 #include "OSCDelegate.h"
 #include "TCPServer.h"
-#ifdef __IOS__
-#include "USBPort.h"
-#endif
+#include "MonitorThread.h"
 
 class ConnectionManager: public TCPClientManager , public OSCDelegate, public TCPCallbackManagerDelegate {
 public:
@@ -37,6 +35,10 @@ public:
     int server_connected_count = 0;
     
     void broadcast_session();
+    
+    void work();
+    
+    MonitorThread * monitor_thread;
     
 };
 

@@ -21,30 +21,9 @@ SettingsView::SettingsView(ZDB * a_zdb, GLViews * content_views) : ContentView(a
     
     current_profile = Interkomm::Kit()->interkomm_profile;
     
-    GLView * profile_overview = new GLView(a_zdb, CRectMake(0, 0, 1, profile_overview_height));
-    profile_overview->backgroundColor = GLTBlue();
-    addSubview(profile_overview);
-    
-    
-    GLView * avatar_view = new GLView(a_zdb,CRectMake(0, 0, 1, 0.5));
-    avatar_view->setImage(gl->imageWithName("ableton_link_disabled.png"));
-    profile_overview->addSubview(avatar_view);
-    
-    GLGridView * profile_description_grid = new GLGridView(a_zdb, CRectMake(0, 0.5, 1, 0.5));
-    profile_description_grid->setGridSize(SizeMake(2, 2));
-    profile_overview->addSubview(profile_description_grid);
-    
-    GLLabel * profile_name_label = new GLLabel(a_zdb, current_profile->str_inf.profile_name);
-    profile_description_grid->addSubview(profile_name_label, 0, 0);
-    
-    GLLabel * profile_profession_label = new GLLabel(a_zdb, current_profile->str_inf.display_profession);
-    profile_description_grid->addSubview(profile_profession_label, 1, 0);
-    
-    GLLabel * profile_tag_label = new GLLabel(a_zdb, current_profile->str_inf.display_tag);
-    profile_description_grid->addSubview(profile_tag_label, 0, 1);
-    
-    GLLabel * uuid_label = new GLLabel(a_zdb, current_profile->str_inf.uuid);
-    profile_description_grid->addSubview(uuid_label, 1, 1);
+    profile_page = new ProfilePage(a_zdb, current_profile);
+    profile_page->setRelativeFrame(CRectMake(0, 0, 1, profile_overview_height));
+    addSubview(profile_page);
     
     settings_overview = new GLView(a_zdb, CRectMake(0, profile_overview_height, 1, roles_overview_height));
     settings_overview->backgroundColor = GLTGreen();
@@ -100,6 +79,8 @@ SettingsView::SettingsView(ZDB * a_zdb, GLViews * content_views) : ContentView(a
     
     roles_view = new RolesView(a_zdb,user_roles,this);
     channels_view = new ChannelsView(a_zdb,current_channels,this);
+    
+    
     
 }
 

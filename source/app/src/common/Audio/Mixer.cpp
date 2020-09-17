@@ -10,7 +10,8 @@
 
 //constructor
 Mixer::Mixer(ZDB * a_zdb, ConnectionManager * a_connection_manager) : ALNode(a_zdb) {
-    
+    al->use_input->setValue(true);
+
     connection_manager = a_connection_manager;
     tcp_client = connection_manager->tcp_client;
     tcp_server = connection_manager->server;
@@ -21,7 +22,7 @@ Mixer::Mixer(ZDB * a_zdb, ConnectionManager * a_connection_manager) : ALNode(a_z
     
 
     microphone_input = new ALMicrophoneInput(a_zdb);
-    
+
     zdb->al->input->addSource(microphone_input);
 }
 

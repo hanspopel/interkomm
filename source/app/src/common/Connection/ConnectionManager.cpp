@@ -24,7 +24,8 @@
 ConnectionManager::ConnectionManager(ZDB * a_zdb, int flags, string opt_dns_search_term) : TCPClientManager(a_zdb, flags, opt_dns_search_term) {
     
     server = new TCPServer(a_zdb, flags, opt_dns_search_term);
-    
+    tcp_client->device_id = get_uuid();
+
     tcp_client->discovery->guid = server->discovery->guid;
     tcp_client->plugin_client = true;
     
@@ -36,6 +37,18 @@ ConnectionManager::ConnectionManager(ZDB * a_zdb, int flags, string opt_dns_sear
     servers_updated->always_call_listener = true;
     
     
+    gl->addTimerWithInterval(10, -1, [=]{
+        broadcast_session();
+    });
+    
+    Callback * mon_call = new Callback([=](GLEvent * event){
+        broadcast_session();
+    });
+
+    
+    monitor_thread = new MonitorThread(mon_call);
+    
+    
 }
 
 //deconstructor
@@ -44,10 +57,15 @@ ConnectionManager::~ConnectionManager() {
     
 }
 
+void ConnectionManager::work(){
+    server->Start();
+    tcp_client->Start();
+}
+
 void ConnectionManager::TCPConnectionAdded(TCPConnection * connection) {
     connection_lock->Lock();
     Server * server = new Server(zdb, connection, this);
-    broadcast_session();
+//    broadcast_session();
     servers->push_back(server);
     server_count = servers->size();
     connection_lock->Unlock();
@@ -63,8 +81,19 @@ void ConnectionManager::broadcast_session(){
     for (Channel * a_channel:*Interkomm::Kit()->interkomm_session->_channels()) {
         char buffer[4096];
         osc::OutboundPacketStream p(buffer, 4096);
-        p << osc::BeginMessage("/new_channel_created_broad");
+        p << osc::BeginMessage("/channel_update");
+        string a_channel_name = a_channel->_name().c_str();
+        int user_size = a_channel->_users()->size();
+        int role_size = a_channel->_roles()->size();
         p << a_channel->_name().c_str();
+        p << user_size;
+        for (User * a_user:*a_channel->_users()) {
+            p << a_user->_name().c_str();
+        }
+        p << role_size;
+        for (Role * a_role:*a_channel->_roles()) {
+            p << a_role->_name().c_str();
+        }
         p << osc::EndMessage;
         Interkomm::Kit()->connection_manager->tcp_client->SendPacket(p.Data(), (int)p.Size(), NETWORK_DATA_OSC, 0 ,false);
     }

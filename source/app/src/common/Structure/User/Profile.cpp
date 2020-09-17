@@ -53,10 +53,8 @@ Profile * Profile::load_profile(ZDB * a_zdb){
 
     }
     
-    
-    
-    
     Profile * a_profile = new Profile(a_zdb,"MaxMusterFrau");
+    a_profile->just_created = true;
     Profile::save_profile(a_profile, a_zdb);
     
     return a_profile;

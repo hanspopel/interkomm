@@ -56,6 +56,8 @@ set(RootFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/Server.h
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ConnectionManager.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ConnectionManager.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/MonitorThread.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/MonitorThread.h
   )
 
 set(LayoutFiles
@@ -73,6 +75,12 @@ set(CommunicationFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/UserView.h
     )
 
+set(DialogFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Dialog/ProfileDialog.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Dialog/ProfileDialog.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Dialog/ChannelDialog.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Dialog/ChannelDialog.h
+)
 
 set(ChannelViewFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Channel/ChannelView.cpp
@@ -128,6 +136,8 @@ set(RoleFiles
   set(SettingsFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsView.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsDetailBase.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/SettingsDetailBase.h
   )
 
   set(RoleSettingsFiles
@@ -143,6 +153,12 @@ set(RoleFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelsView.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Channels/ChannelsView.h
   )
+
+  set(ProfileSettingsFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Profile/ProfilePage.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Settings/Profile/ProfilePage.h
+  )
+
 
   set(DebugFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/DebugView.cpp
@@ -184,9 +200,13 @@ source_group("Layout" FILES ${LayoutFiles})
 source_group("Layout\\Settings" FILES ${SettingsFiles})
 source_group("Layout\\Settings\\Channels" FILES ${ChannelSettingsFiles})
 source_group("Layout\\Settings\\Roles" FILES ${RoleSettingsFiles})
+source_group("Layout\\Settings\\Profile" FILES ${ProfileSettingsFiles})
+
+
+
 source_group("Layout\\TopBar" FILES ${TopBarFiles})
 source_group("Layout\\Debug" FILES ${DebugFiles})
-
+source_group("Layout\\Dialog" FILES ${DialogFiles})
 source_group("Layout\\TopBar\\Controls" FILES ${TopBarControlFiles})
 
 source_group("Layout\\Communication" FILES ${CommunicationFiles})
@@ -234,6 +254,8 @@ set(SRC
     ${ChannelFiles}
     ${SessionFiles}
     ${WorkspaceFiles}
+    ${DialogFiles}
+    ${ProfileSettingsFiles}
  )
 
 

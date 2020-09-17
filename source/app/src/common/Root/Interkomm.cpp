@@ -41,22 +41,15 @@ void Interkomm::init(){
     restore();
     
     connection_manager = new ConnectionManager(zdb, NetworkInfo::can_process_audio | NetworkInfo::forbid_loopback, "_interkomm_dns._tcp");
-    callback_manager = connection_manager->tcp_client->cb_manager;
-    connection_manager->tcp_client->device_id = get_uuid();
     
     main_view = new MainView(zdb);
     addSubview(main_view);
 
-
-    
     mixer = new Mixer(zdb, connection_manager);
-    
-    al->use_input->setValue(true);
     zdb->al->output->addSource(mixer);
 
     
-    connection_manager->server->Start();
-    connection_manager->tcp_client->Start();
+    connection_manager->work();
     
 }
 
@@ -69,6 +62,18 @@ bool Interkomm::restore(){
 
     interkomm_session = Session::load_latest_session(zdb);
     interkomm_profile = Profile::load_profile(zdb);
+    
+    
+    if (interkomm_profile->just_created) {
+        interkomm_profile->just_created = false;
+        
+        ProfileDialog * profile_dialog = new ProfileDialog(zdb, interkomm_profile);
+        profile_dialog->setIsPopupLayer(true);
+        gl->addPopup(profile_dialog, true, 0.1337, GLColorWithAlpha(GLBlack(), 0.7), 0);
+        
+    }
+    
+    
     
     return false;
 }

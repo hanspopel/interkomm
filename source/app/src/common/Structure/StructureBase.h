@@ -12,6 +12,8 @@
 
 #include "Engine.h"
 #include "mss.h"
+
+
 class Session;
 class StructureBase : public ZDBObject{
     string name;

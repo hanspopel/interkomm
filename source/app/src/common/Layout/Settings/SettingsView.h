@@ -17,6 +17,7 @@
 #include "Profile.h"
 #include "RolesView.h"
 #include "ChannelsView.h"
+#include "ProfilePage.h"
 
 #define PROFILE_VIEW_TAG 2
 
@@ -28,6 +29,8 @@ public:
     ~SettingsView();
     
     Profile * current_profile;
+    
+    ProfilePage * profile_page;
     
     Roles * user_roles;
     Channels * current_channels;

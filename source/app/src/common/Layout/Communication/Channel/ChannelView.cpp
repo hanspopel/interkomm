@@ -24,7 +24,7 @@ ChannelView::ChannelView(ZDB * a_zdb) : GLView(a_zdb) {
 
     for (int i = 0; i<2; i++) {
         User * a_user = new User(a_zdb, "asdasdasd");
-        channel->channel_users->push_back(a_user);
+        channel->_users()->push_back(a_user);
     }
 
     
@@ -50,8 +50,8 @@ ChannelView::ChannelView(ZDB * a_zdb) : GLView(a_zdb) {
                 user_view->should_delete = true;
                 return user_view;
             }
-            else if (y < channel->channel_users->size()) {
-                UserView * user_view = new UserView(a_zdb,channel->channel_users->at(y));
+            else if (y < channel->_users()->size()) {
+                UserView * user_view = new UserView(a_zdb,channel->_users()->at(y));
                 user_view_map->emplace(key, user_view);
                 return user_view;
             }

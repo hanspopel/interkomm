@@ -10,10 +10,13 @@
 #include "Session.h"
 
 StructureBase::StructureBase(ZDB * a_zdb) : ZDBObject(a_zdb) {
+    name = "";
+    unique_id = get_uuid();
 }
 
 StructureBase::StructureBase(ZDB * a_zdb, string a_name) : ZDBObject(a_zdb) {
     name = a_name;
+    unique_id = get_uuid();
 }
 
 

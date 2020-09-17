@@ -10,23 +10,51 @@
 #include "Interkomm.h"
 
 Channel::Channel(ZDB * a_zdb) : StructureBase(a_zdb) {
-    channel_users = new Users;
+    init();
 }
 
 Channel::Channel(ZDB * a_zdb, string a_name) : StructureBase(a_zdb, a_name) {
-    
-    channel_users = new Users;
+    init();
 }
 
 Channel::Channel(ZDB * a_zdb, vector<Role*>* chanroles)  : StructureBase(a_zdb){
+    init();
+}
 
+void Channel::init(){
+    channel_users = new Users();
+    channels_roles = new Roles();
+    channels_roles->push_back(new Role(zdb, "sess"));
 }
 
 
-void Channel::setuproles(){
-
+void Channel::auto_add_user(string a_name){
+    bool user_found = false;
+    
+    for (User * a_user:*channel_users) {
+        if (a_name == a_user->_name()) {
+            user_found = true;
+            break;
+        }
+    }
+    if (!user_found) {
+        channel_users->push_back(new User(zdb,a_name));
+    }
 }
 
+void Channel::auto_add_role(string a_name){
+    bool role_found = false;
+    
+    for (Role * a_role:*channels_roles) {
+        if (a_name == a_role->_name()) {
+            role_found = true;
+            break;
+        }
+    }
+    if (!role_found) {
+        channels_roles->push_back(new Role(zdb,a_name));
+    }
+}
 
 bool Channel::save_channel(mss * session, Channel * a_channel, ZDB * a_zdb){
     session->write_string(a_channel->_name());
@@ -60,6 +88,7 @@ bool Channel::save_channels(Session * a_session, ZDB * a_zdb){
     
     return true;
 }
+
 bool Channel::load_channels(Session * a_session, ZDB * a_zdb){
     
     

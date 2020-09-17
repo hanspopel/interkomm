@@ -20,6 +20,7 @@
 #include "Mixer.h"
 #include "Session.h"
 #include "Profile.h"
+#include "ProfileDialog.h"
 
 
 class Interkomm : public GLControl  {
@@ -30,7 +31,6 @@ public:
     
     MainView * main_view = 0;
         
-    TCPCallbackManager * callback_manager;
     ConnectionManager * connection_manager;
         
     bool restore();

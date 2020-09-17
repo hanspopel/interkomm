@@ -11,22 +11,13 @@
 #include "Interkomm.h"
 
 //constructor
-RolesView::RolesView(ZDB * a_zdb, Roles * a_roles, SettingsView * a_settings_view) : GLView(a_zdb) {
+RolesView::RolesView(ZDB * a_zdb, Roles * a_roles, SettingsView * a_settings_view) : SettingsDetailBase(a_zdb, a_settings_view) {
     
     settings_view = a_settings_view;
     
     user_roles = a_roles;
     
     role_button_map = new RoleButtonMap();
-    
-    
-    dbButton * back_btn = new dbButton(a_zdb);
-    back_btn->titleLabel->setText("Back");
-    back_btn->setRelativeFrame(CRectMake(0,0,0.5,0.1));
-    addSubview(back_btn);
-    back_btn->addCallbackForControlEvent(new Callback([=](GLEvent * event){
-        settings_view->back_to_overview();
-    }), GLControlEventTouchUpInside);
     
     dbButton * add_roll_btn = new dbButton(a_zdb);
     add_roll_btn->titleLabel->setText("Add");
