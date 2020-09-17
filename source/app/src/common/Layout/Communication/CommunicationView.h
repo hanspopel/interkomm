@@ -24,7 +24,7 @@ public:
 
     CommunicationView(ZDB * a_zdb, GLViews * content_views);
     
-    void enter_channel_view(int tag);
+//    void enter_channel_view(int tag);
     void back_to_overall_view();
     
     ~CommunicationView();
