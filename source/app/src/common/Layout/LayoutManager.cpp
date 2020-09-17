@@ -55,7 +55,7 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
 
 //deconstructor
 LayoutManager::~LayoutManager() {
-    
+    delete communication_view;
 }
 
 

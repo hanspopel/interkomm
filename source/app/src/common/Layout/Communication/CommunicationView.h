@@ -18,14 +18,19 @@
 
 class CommunicationView : public ContentView {
 public:
+    
+    OverallView * overall_view;
+    ChannelView * a_channel_view;
+
     CommunicationView(ZDB * a_zdb, GLViews * content_views);
+    
+    void enter_channel_view(int tag);
+    void back_to_overall_view();
+    
     ~CommunicationView();
     
 //    GLViews * content_views;
 
-    
-    OverallView * overall_view;
-    ChannelView * channel_view;
     
 //    ChannelViews * channel_views;
 //

@@ -10,7 +10,7 @@
 
 
 //constructor
-ChannelView::ChannelView(ZDB * a_zdb) : GLView(a_zdb) {
+ChannelView::ChannelView(ZDB * a_zdb, CommunicationView * a_com_view) : GLView(a_zdb) {
     
     tag = 1;
     
