@@ -90,6 +90,8 @@ set(OverallFiles
 set(UserFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/User.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/User.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/Profile.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/Profile.h
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/SuperUser.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Structure/User/SuperUser.h
   )

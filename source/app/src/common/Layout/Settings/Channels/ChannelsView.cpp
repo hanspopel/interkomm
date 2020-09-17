@@ -77,14 +77,48 @@ ChannelsView::ChannelsView(ZDB * a_zdb, Channels * a_channels, SettingsView * a_
         
         osc::ReceivedMessageArgumentIterator it = m.ArgumentsBegin();
         string new_channel_name = (it++)->AsString();
+        bool channel_found = false;
+        for (Channel * a_channel:*current_channels) {
+            if (new_channel_name == a_channel->_name()) {
+                channel_found = true;
+                break;
+            }
+        }
+        if (!channel_found) {
+            current_channels->push_back(new Channel(zdb, new_channel_name));
+        }
 
-        current_channels->push_back(new Channel(zdb, new_channel_name));
         Channel::save_channels(Interkomm::Kit()->interkomm_session, zdb);
         channels_scroll_view->setGridSize(SizeMake(1, current_channels->size()));
         channels_scroll_view->loadVisibleGrid();
         
         
     });
+    
+    Interkomm::Kit()->connection_manager->server->cb_manager->add_callback("/new_channel_created_broad", [=](const osc::ReceivedMessage& m){
+
+        
+        
+        osc::ReceivedMessageArgumentIterator it = m.ArgumentsBegin();
+        string new_channel_name = (it++)->AsString();
+        bool channel_found = false;
+        for (Channel * a_channel:*current_channels) {
+            if (new_channel_name == a_channel->_name()) {
+                channel_found = true;
+                break;
+            }
+        }
+        if (!channel_found) {
+            current_channels->push_back(new Channel(zdb, new_channel_name));
+        }
+
+        Channel::save_channels(Interkomm::Kit()->interkomm_session, zdb);
+        channels_scroll_view->setGridSize(SizeMake(1, current_channels->size()));
+        channels_scroll_view->loadVisibleGrid();
+        
+        
+    });
+    
     
     
     Interkomm::Kit()->connection_manager->tcp_client->cb_manager->add_callback("/channel_deleted", [=](const osc::ReceivedMessage& m){

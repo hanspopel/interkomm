@@ -7,7 +7,6 @@
 
 #include "User.h"
 #include "Channel.h"
-#include <stdio.h>
 
 
 User::User(ZDB * a_zdb) : StructureBase(a_zdb){

@@ -19,6 +19,8 @@ SettingsView::SettingsView(ZDB * a_zdb, GLViews * content_views) : ContentView(a
     float profile_overview_height = 0.3;
     float roles_overview_height = 0.7;
     
+    current_profile = Interkomm::Kit()->interkomm_profile;
+    
     GLView * profile_overview = new GLView(a_zdb, CRectMake(0, 0, 1, profile_overview_height));
     profile_overview->backgroundColor = GLTBlue();
     addSubview(profile_overview);
@@ -29,18 +31,20 @@ SettingsView::SettingsView(ZDB * a_zdb, GLViews * content_views) : ContentView(a
     profile_overview->addSubview(avatar_view);
     
     GLGridView * profile_description_grid = new GLGridView(a_zdb, CRectMake(0, 0.5, 1, 0.5));
-    profile_description_grid->setGridSize(SizeMake(1, 3));
+    profile_description_grid->setGridSize(SizeMake(2, 2));
     profile_overview->addSubview(profile_description_grid);
     
-    GLLabel * profile_name_label = new GLLabel(a_zdb, "Pascal");
+    GLLabel * profile_name_label = new GLLabel(a_zdb, current_profile->str_inf.profile_name);
     profile_description_grid->addSubview(profile_name_label, 0, 0);
     
-    GLLabel * profile_profession_label = new GLLabel(a_zdb, "Director");
-    profile_description_grid->addSubview(profile_profession_label, 0, 1);
+    GLLabel * profile_profession_label = new GLLabel(a_zdb, current_profile->str_inf.display_profession);
+    profile_description_grid->addSubview(profile_profession_label, 1, 0);
     
-    GLLabel * profile_tag_label = new GLLabel(a_zdb, "Always sunny in");
-    profile_description_grid->addSubview(profile_tag_label, 0, 2);
+    GLLabel * profile_tag_label = new GLLabel(a_zdb, current_profile->str_inf.display_tag);
+    profile_description_grid->addSubview(profile_tag_label, 0, 1);
     
+    GLLabel * uuid_label = new GLLabel(a_zdb, current_profile->str_inf.uuid);
+    profile_description_grid->addSubview(uuid_label, 1, 1);
     
     settings_overview = new GLView(a_zdb, CRectMake(0, profile_overview_height, 1, roles_overview_height));
     settings_overview->backgroundColor = GLTGreen();

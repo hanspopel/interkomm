@@ -13,15 +13,23 @@
 #include "StructureBase.h"
 
 
+struct string_info {
+    string profile_name = "Pascal";
+    string display_name = "Pascal Kam";
+    string display_tag = "veni venire";
+    string display_profession = "veni venire";
+    string uuid =  ".2";
+};
 
-using namespace std;
 
-
-class User : public StructureBase{
+class User : public StructureBase {
 
 public :
     string extension = "users";
 
+
+    string_info str_inf;
+    
     User(ZDB * a_zdb);
     User(ZDB * a_zd, string name);
     void init();
@@ -34,8 +42,6 @@ public :
     void assignPTThardware();
     
     void listentorec();
-    
-
     
 };
 

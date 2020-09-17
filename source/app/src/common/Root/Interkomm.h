@@ -19,6 +19,7 @@
 #include "Server.h"
 #include "Mixer.h"
 #include "Session.h"
+#include "Profile.h"
 
 
 class Interkomm : public GLControl  {
@@ -31,12 +32,11 @@ public:
         
     TCPCallbackManager * callback_manager;
     ConnectionManager * connection_manager;
-    
-    
-    void save_session(string path);
-    bool load_session(string path);
+        
+    bool restore();
     
     Session * interkomm_session = 0;
+    Profile * interkomm_profile = 0;
     
     static Interkomm* Kit(ZDB * a_zdb = 0);
     void operator=(Interkomm const&){};

@@ -14,6 +14,7 @@
 #include "OverallView.h"
 #include "ChannelView.h"
 #include "Role.h"
+#include "Profile.h"
 #include "RolesView.h"
 #include "ChannelsView.h"
 
@@ -25,6 +26,8 @@ class SettingsView : public ContentView {
 public:
     SettingsView(ZDB * a_zdb, GLViews * content_views);
     ~SettingsView();
+    
+    Profile * current_profile;
     
     Roles * user_roles;
     Channels * current_channels;

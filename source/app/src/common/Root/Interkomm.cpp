@@ -38,28 +38,37 @@ Interkomm::~Interkomm() {
 
 void Interkomm::init(){
     
-
-    createDirectoryAtPath("/Sessions/");
-    createDirectoryAtPath("/Settings/");
-
-    interkomm_session = Session::load_latest_session(zdb);
+    restore();
     
     connection_manager = new ConnectionManager(zdb, NetworkInfo::can_process_audio | NetworkInfo::forbid_loopback, "_interkomm_dns._tcp");
     callback_manager = connection_manager->tcp_client->cb_manager;
     connection_manager->tcp_client->device_id = get_uuid();
-
     
-    zdb->gl->block_notch->setValue(true);
-    zdb->gl->block_round_corner_edges->setValue(true);
-
-
     main_view = new MainView(zdb);
     addSubview(main_view);
-    
+
+
     
     mixer = new Mixer(zdb, connection_manager);
     
     al->use_input->setValue(true);
     zdb->al->output->addSource(mixer);
 
+    
+    connection_manager->server->Start();
+    connection_manager->tcp_client->Start();
+    
+}
+
+
+bool Interkomm::restore(){
+    
+    createDirectoryAtPath("/Sessions/");
+    createDirectoryAtPath("/Settings/");
+    createDirectoryAtPath("/Profile/");
+
+    interkomm_session = Session::load_latest_session(zdb);
+    interkomm_profile = Profile::load_profile(zdb);
+    
+    return false;
 }

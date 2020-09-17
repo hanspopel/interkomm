@@ -50,7 +50,7 @@ bool Session::save_session(Session * a_session, ZDB * a_zdb){
 
     string folder_path = "/Sessions/" + session_name + "/";
     createDirectoryAtPath(folder_path);
-    string path = "/Sessions/" + session_name + "/" + session_name + ".session";
+    string path = path_for_session(a_session,Session::get_extension());
     
     mss * session = new mss(0001);
     session->write_string(session_name);

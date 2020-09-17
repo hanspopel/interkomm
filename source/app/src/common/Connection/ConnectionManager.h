@@ -36,7 +36,8 @@ public:
     long server_count = 0;
     int server_connected_count = 0;
     
-
+    void broadcast_session();
+    
 };
 
 typedef vector <ConnectionManager*> ConnectionManagers;
