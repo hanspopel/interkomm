@@ -189,6 +189,10 @@ if [ "$CREATE_XCODE_PROJ" == "ON" ]
         cd $ROOT_FOLDER_INTERKOMM/build/osx
         ../../source/scripts/build_projects.sh 2>&1 | tee -a $LOGFILE ; test ${PIPESTATUS[0]} -eq 0
 
+        sed -i -e 's/LIBRARY_SEARCH_PATHS = "";/LIBRARY_SEARCH_PATHS = "${inherited}";/g' interkomm_all.xcodeproj/project.pbxproj 
+        cp ../../Podfile ./Podfile
+        pod install
+
 
         RESULT=$?
         if [ "$RESULT" != "0" ]

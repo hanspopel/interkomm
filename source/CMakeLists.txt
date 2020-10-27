@@ -9,6 +9,11 @@ endif(WIN32)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
 
+SET(INHERITED_STRING "\$")
+string(APPEND INHERITED_STRING "{inherited}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
+set(CMAKE_CXX_LINK_FLAGS ${INHERITED_STRING})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${INHERITED_STRING}")
 
 
 project("interkomm_all")
