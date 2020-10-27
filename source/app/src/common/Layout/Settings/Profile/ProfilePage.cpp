@@ -40,7 +40,7 @@ ProfilePage::ProfilePage(ZDB * a_zdb, Profile * a_profile) : GLView(a_zdb) {
     profile_description_grid->addSubview(uuid_label, 1, 1);
     
     
-    dbButton * change_profile_name = new dbButton(a_zdb);
+    GLStyleButton * change_profile_name = new GLStyleButton(a_zdb);
     change_profile_name->setRelativeFrame(CRectMake(0.7, 0, 0.3, 0.2));
     change_profile_name->titleLabel->setText("change");
     profile_overview->addSubview(change_profile_name);

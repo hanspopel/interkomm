@@ -10,16 +10,16 @@
 #define __Engine__ChannelButton__
 #include "Engine.h"
 #include "ContentView.h"
-#include "dbButton.h"
+#include "GLStyleButton.h"
 #include "Channel.h"
 
 
-class ChannelButton : public dbButton {
+class ChannelButton : public GLStyleButton {
 public:
     ChannelButton(ZDB * a_zdb, Channel * a_channel);
     ~ChannelButton();
             
-    dbButton * delete_channel_button;
+    GLStyleButton * delete_channel_button;
     
     Channel * channel = 0;
 };

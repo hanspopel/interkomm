@@ -13,7 +13,7 @@
 #include "GLGridScrollView.h"
 #include "UserView.h"
 #include "Channel.h"
-#include "dbButton.h"
+#include "GLStyleButton.h"
 
 class CommunicationView;
 class ChannelView : public GLView {
@@ -28,7 +28,7 @@ public:
     CommunicationView * com_view = 0;
 
     
-    dbButton * talk_button;
+    GLStyleButton * talk_button;
 };
 
 #endif /* defined(__Engine__ChannelView__) */

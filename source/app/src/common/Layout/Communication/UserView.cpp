@@ -7,7 +7,7 @@
 //
 
 #include "UserView.h"
-#include "dbButton.h"
+#include "GLStyleButton.h"
 
 //constructor
 UserView::UserView(ZDB * a_zdb, User * a_user) : GLView(a_zdb) {
@@ -15,7 +15,7 @@ UserView::UserView(ZDB * a_zdb, User * a_user) : GLView(a_zdb) {
 //    GLLabel * label = new GLLabel(a_zdb,a_user->_name());
 //    addSubview(label);
     
-    talk_button = new dbButton(a_zdb);
+    talk_button = new GLStyleButton(a_zdb);
     talk_button->titleLabel->setText(a_user->_name());
     talk_button->setRelativeFrame(CRectMake(0, 0, 1, 1)); // (Position Channelbutton, 0 ,
     // CRectMake(float x, float y, float width, float height)

@@ -22,7 +22,7 @@ ProfileDialog::ProfileDialog(ZDB * a_zdb, Profile * a_profile) : GLView(a_zdb) {
     profile_name_label->setRelativeFrame(CRectMake(0, 0, 1, 0.1));
     addSubview(profile_name_label);
     
-    dbButton * user_name = new dbButton(a_zdb, "set user name");
+    GLStyleButton * user_name = new GLStyleButton(a_zdb, "set user name");
     user_name->setRelativeFrame(CRectMake(0, 0.1, 1, 0.1));
     user_name->addCallbackForControlEvent(new Callback([=](GLEvent * event){
         
@@ -42,7 +42,7 @@ ProfileDialog::ProfileDialog(ZDB * a_zdb, Profile * a_profile) : GLView(a_zdb) {
     addSubview(user_name);
 
     
-    dbButton * display_name = new dbButton(a_zdb, "set displaye name");
+    GLStyleButton * display_name = new GLStyleButton(a_zdb, "set displaye name");
     display_name->setRelativeFrame(CRectMake(0, 0.2, 1, 0.1));
     display_name->addCallbackForControlEvent(new Callback([=](GLEvent * event){
         
@@ -61,7 +61,7 @@ ProfileDialog::ProfileDialog(ZDB * a_zdb, Profile * a_profile) : GLView(a_zdb) {
     addSubview(display_name);
     
     
-    dbButton * prof_name = new dbButton(a_zdb, "set prof name");
+    GLStyleButton * prof_name = new GLStyleButton(a_zdb, "set prof name");
     prof_name->setRelativeFrame(CRectMake(0, 0.3, 1, 0.1));
     prof_name->addCallbackForControlEvent(new Callback([=](GLEvent * event){
         
@@ -82,7 +82,7 @@ ProfileDialog::ProfileDialog(ZDB * a_zdb, Profile * a_profile) : GLView(a_zdb) {
     
         
     
-    dbButton * save_btn = new dbButton(a_zdb, "save & exit");
+    GLStyleButton * save_btn = new GLStyleButton(a_zdb, "save & exit");
     save_btn->setRelativeFrame(CRectMake(0, 0.5, 1, 0.1));
     save_btn->addCallbackForControlEvent(new Callback([=](GLEvent * event){
         //Interkomm::Kit()->main_view->layout_manager->settings_view

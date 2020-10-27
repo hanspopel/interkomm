@@ -9,14 +9,14 @@
 #include "RoleButton.h"
 
 //constructor
-RoleButton::RoleButton(ZDB * a_zdb, Role * a_role) : dbButton(a_zdb) {
+RoleButton::RoleButton(ZDB * a_zdb, Role * a_role) : GLStyleButton(a_zdb) {
     
     backgroundColor = GLTRed();
     role = a_role;
     titleLabel->setText(a_role->_name());
     
     
-    delete_role_button = new dbButton(a_zdb);
+    delete_role_button = new GLStyleButton(a_zdb);
     addSubview(delete_role_button);
     delete_role_button->setRelativeFrame(CRectMake(0.7, 0, 0.3, 1));
     delete_role_button->titleLabel->setText("X");

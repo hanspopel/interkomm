@@ -14,7 +14,7 @@
 #include "OverallView.h"
 #include "ChannelView.h"
 
-// typedef unordered_map <string, dbButton*> ChannelButtonMap;
+// typedef unordered_map <string, GLStyleButton*> ChannelButtonMap;
 
 class CommunicationView : public ContentView {
 public:

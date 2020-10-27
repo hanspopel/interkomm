@@ -21,7 +21,7 @@ ChannelsView::ChannelsView(ZDB * a_zdb, Channels * a_channels, SettingsView * a_
     
     
     
-    dbButton * add_roll_btn = new dbButton(a_zdb);
+    GLStyleButton * add_roll_btn = new GLStyleButton(a_zdb);
     add_roll_btn->titleLabel->setText("Add");
     add_roll_btn->setRelativeFrame(CRectMake(0.5,0,0.5,0.1));
     addSubview(add_roll_btn);

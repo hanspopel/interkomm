@@ -52,7 +52,7 @@ public:
 
 
     
-    dbButtons * settings_buttons;
+    GLStyleButtons * settings_buttons;
   
     void enter_detail_view(int tag);
     void back_to_overview();

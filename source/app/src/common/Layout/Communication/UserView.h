@@ -20,7 +20,7 @@ public:
 
     User * user;
     
-    dbButton * talk_button;
+    GLStyleButton * talk_button;
 
 };
 

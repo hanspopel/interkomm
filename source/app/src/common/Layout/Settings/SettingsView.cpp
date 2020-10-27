@@ -42,30 +42,30 @@ SettingsView::SettingsView(ZDB * a_zdb, GLViews * content_views) : ContentView(a
     settings_scroll_view->setViewSize(SizeMake(1, 4.5));
     settings_overview->addSubview(settings_scroll_view);
     
-    settings_buttons = new dbButtons;
+    settings_buttons = new GLStyleButtons;
     
-    dbButton * roles_btn = new dbButton(a_zdb);
+    GLStyleButton * roles_btn = new GLStyleButton(a_zdb);
     roles_btn->titleLabel->setText("Roles");
     settings_scroll_view->addSubview(roles_btn,0,0);
     settings_buttons->push_back(roles_btn);
     
-    dbButton * channels_btn = new dbButton(a_zdb);
+    GLStyleButton * channels_btn = new GLStyleButton(a_zdb);
     channels_btn->titleLabel->setText("Channels");
     settings_scroll_view->addSubview(channels_btn,0,1);
     settings_buttons->push_back(channels_btn);
     
-    dbButton * edit_profile_btn = new dbButton(a_zdb);
+    GLStyleButton * edit_profile_btn = new GLStyleButton(a_zdb);
     edit_profile_btn->titleLabel->setText("Edit Profle");
     settings_scroll_view->addSubview(edit_profile_btn,0,2);
     settings_buttons->push_back(edit_profile_btn);
     
-    dbButton * settings_btn = new dbButton(a_zdb);
+    GLStyleButton * settings_btn = new GLStyleButton(a_zdb);
     settings_btn->titleLabel->setText("Settings");
     settings_scroll_view->addSubview(settings_btn,0,3);
     settings_buttons->push_back(settings_btn);
     
     int i = 0;
-    for (dbButton * a_btn:*settings_buttons) {
+    for (GLStyleButton * a_btn:*settings_buttons) {
         a_btn->tag = i;
         a_btn->addCallbackForControlEvent(new Callback([=](GLEvent * event){
             enter_detail_view(a_btn->tag);

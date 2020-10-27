@@ -15,7 +15,7 @@ SettingsDetailBase::SettingsDetailBase(ZDB * a_zdb, SettingsView * a_set_view) :
   
     settings_view = a_set_view;
     
-    dbButton * back_btn = new dbButton(a_zdb);
+    GLStyleButton * back_btn = new GLStyleButton(a_zdb);
     back_btn->titleLabel->setText("Back");
     back_btn->setRelativeFrame(CRectMake(0,0,0.5,0.1));
     addSubview(back_btn);
