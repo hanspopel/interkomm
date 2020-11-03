@@ -65,23 +65,23 @@ CommunicationView::CommunicationView(ZDB * a_zdb, GLViews * content_views) : Con
 //            string key = format("%d", x);
 //
 //            if (removing) {
-//                dbButton * user_view = channel_button_map->at(key);
+//                GLStyleButton * user_view = channel_button_map->at(key);
 //                channel_button_map->erase(key);
 //                user_view->should_delete = true;
 //                return user_view;
 //            }
 //            else if (x < channels->size()) {
-//                dbButton * user_view = new dbButton(a_zdb);
+//                GLStyleButton * user_view = new GLStyleButton(a_zdb);
 //                user_view->titleLabel->setText(to_string(channels->at(x)->_id()));
 //                channel_button_map->emplace(key, user_view);
 //                return user_view;
 //            }
 //
 //        } catch (...) {
-//            return (dbButton*)nullptr;
+//            return (GLStyleButton*)nullptr;
 //            printf("failed source track_grid ");
 //        }
-//        return (dbButton*)nullptr;
+//        return (GLStyleButton*)nullptr;
 //    };
 ////    addSubview(channel_scroll_view);
 //

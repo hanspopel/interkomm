@@ -33,7 +33,7 @@ ChannelDialog::ChannelDialog(ZDB * a_zdb, Session * a_session) : GLView(a_zdb) {
     }, [=]{});
     
     
-    dbButton * add_role = new dbButton(a_zdb, "add role");
+    GLStyleButton * add_role = new GLStyleButton(a_zdb, "add role");
     add_role->colorOff = GLTRed();
     add_role->setRelativeFrame(CRectMake(0, 0.3, 1, 0.3));
     add_role->setIsPopupLayer(true);
@@ -54,7 +54,7 @@ ChannelDialog::ChannelDialog(ZDB * a_zdb, Session * a_session) : GLView(a_zdb) {
     addSubview(add_role);
     
     
-    dbButton * save_btn = new dbButton(a_zdb, "save & exit");
+    GLStyleButton * save_btn = new GLStyleButton(a_zdb, "save & exit");
     save_btn->colorOff = GLTRed();
     save_btn->setRelativeFrame(CRectMake(0, 0.9, 1, 0.1));
     save_btn->setIsPopupLayer(true);

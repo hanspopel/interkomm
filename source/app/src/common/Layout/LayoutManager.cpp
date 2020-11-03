@@ -33,7 +33,6 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
 
     communication_view = new CommunicationView(a_zdb,content_views);
     main_view->addSubview(communication_view);
-    debug_view = new DebugView(a_zdb,content_views);
     settings_view = new SettingsView(a_zdb,content_views);
 
     top_bar = new TopBar(a_zdb,this);

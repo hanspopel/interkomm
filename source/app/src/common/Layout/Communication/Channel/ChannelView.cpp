@@ -65,7 +65,7 @@ ChannelView::ChannelView(ZDB * a_zdb, CommunicationView * a_com_view) : GLView(a
     addSubview(user_scroll_view);
     
     
-    talk_button = new dbButton(a_zdb);
+    talk_button = new GLStyleButton(a_zdb);
     talk_button->setRelativeFrame(CRectMake(0, 0.8, 1, 1));
     talk_button->titleLabel->setText("talk");
     addSubview(talk_button);

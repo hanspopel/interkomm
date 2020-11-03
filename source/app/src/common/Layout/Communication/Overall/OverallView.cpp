@@ -65,23 +65,23 @@ OverallView::OverallView(ZDB * a_zdb, CommunicationView * a_com_view) : GLView(a
 //            string key = format("%d", x);
 //
 //            if (removing) {
-//                dbButton * user_view = channel_button_map->at(key);
+//                GLStyleButton * user_view = channel_button_map->at(key);
 //                channel_button_map->erase(key);
 //                user_view->should_delete = true;
 //                return user_view;
 //            }
 //            else if (x < channels->size()) {
-//                dbButton * user_view = new dbButton(a_zdb);
+//                GLStyleButton * user_view = new GLStyleButton(a_zdb);
 //                user_view->titleLabel->setText(to_string(channels->at(x)->_id()));
 //                channel_button_map->emplace(key, user_view);
 //                return user_view;
 //            }
 //
 //        } catch (...) {
-//            return (dbButton*)nullptr;
+//            return (GLStyleButton*)nullptr;
 //            printf("failed source track_grid ");
 //        }
-//        return (dbButton*)nullptr;
+//        return (GLStyleButton*)nullptr;
 //    };
 //    addSubview(channel_scroll_view);
     
@@ -133,7 +133,7 @@ OverallView::OverallView(ZDB * a_zdb, CommunicationView * a_com_view) : GLView(a
     addSubview(user_scroll_view);
     
     
-    return_button = new dbButton(a_zdb);
+    return_button = new GLStyleButton(a_zdb);
     return_button->setRelativeFrame(CRectMake(0, 0.8, 1, 1));
     return_button->titleLabel->setText("talk");
     addSubview(return_button);

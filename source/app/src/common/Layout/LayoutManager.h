@@ -12,7 +12,6 @@
 #include "GLControl.h"
 #include "TopBar.h"
 #include "TopBarButton.h"
-#include "DebugView.h"
 #include "CommunicationView.h"
 #include "SettingsView.h"
 
@@ -47,7 +46,6 @@ public:
     void select_content_view(int a_tag);
     
     CommunicationView * communication_view;
-    DebugView * debug_view;
     SettingsView * settings_view;
 
     

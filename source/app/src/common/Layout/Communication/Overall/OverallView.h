@@ -13,12 +13,12 @@
 #include "GLGridScrollView.h"
 #include "UserView.h"
 #include "Channel.h"
-#include "dbButton.h"
+#include "GLStyleButton.h"
 #include <vector>
 #include "ChannelFrameView.h"
 
 class CommunicationView;
-typedef unordered_map <string, dbButton*> ChannelButtonMap; // TODO pro channel mind 3 buttons
+typedef unordered_map <string, GLStyleButton*> ChannelButtonMap; // TODO pro channel mind 3 buttons
 
 class OverallView : public GLView {
     
@@ -40,7 +40,7 @@ public:
     ChannelFrameViews * channel_frame_views;
     CommunicationView * com_view = 0;
     
-    dbButton * return_button; // directly talk back to last speaker
+    GLStyleButton * return_button; // directly talk back to last speaker
 };
 
 

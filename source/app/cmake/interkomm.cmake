@@ -170,12 +170,12 @@ set(RoleFiles
   )
 
 
-  set(DebugFiles
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/DebugView.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/DebugView.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/NetworkDebugView.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/NetworkDebugView.h
-  )
+  # set(DebugFiles
+  #   ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/DebugView.cpp
+  #   ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/DebugView.h
+  #   ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/NetworkDebugView.cpp
+  #   ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Debug/NetworkDebugView.h
+  # )
 
     set(AudioFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/Mixer.cpp

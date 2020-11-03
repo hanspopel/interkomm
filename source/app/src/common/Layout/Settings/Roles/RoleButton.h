@@ -10,16 +10,16 @@
 #define __Engine__RoleButton__
 #include "Engine.h"
 #include "ContentView.h"
-#include "dbButton.h"
+#include "GLStyleButton.h"
 #include "Role.h"
 
 
-class RoleButton : public dbButton {
+class RoleButton : public GLStyleButton {
 public:
     RoleButton(ZDB * a_zdb, Role * a_role);
     ~RoleButton();
             
-    dbButton * delete_role_button;
+    GLStyleButton * delete_role_button;
     
     Role * role = 0;
 };
