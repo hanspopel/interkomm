@@ -56,8 +56,6 @@ set(RootFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/Server.h
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ConnectionManager.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ConnectionManager.h
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/MonitorThread.cpp
-    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/MonitorThread.h
   )
 
 set(LayoutFiles
@@ -197,7 +195,16 @@ set(RoleFiles
   )
 
 
-include(${RELATIVE_PATH_TO_SOURCE}/../zbd/source/cmake/includes/zdb_server.cmake)
+include(${RELATIVE_PATH_TO_SOURCE}/../../zdb/source/cmake/includes/zdb_server.cmake)
+
+SET(gZDBServerCommon 
+    ${gZDBServerCommon}
+    ${RELATIVE_PATH_TO_SOURCE}/../../zdb/source/src/common/tcp/TCPAbletonClient.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/../../zdb/source/src/common/tcp/TCPAbletonClient.h
+)
+
+include_directories("${RELATIVE_PATH_TO_SOURCE}/../../zdb/source/server")
+
 
 source_group("ZDB\\ServerBase" FILES ${gZDBServerCommon})
 
@@ -243,6 +250,8 @@ get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTO
 foreach(dir ${dirs})
   message(STATUS "dir='${dir}'")
 endforeach()
+
+
 
 set(SRC 
     ${RELATIVE_PATH_TO_SOURCE}/src/common/main.cpp

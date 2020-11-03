@@ -15,7 +15,6 @@
 #include <dns_sd.h>
 #include "OSCDelegate.h"
 #include "TCPServer.h"
-#include "MonitorThread.h"
 
 class ConnectionManager: public TCPClientManager , public OSCDelegate, public TCPCallbackManagerDelegate {
 public:
@@ -38,7 +37,6 @@ public:
     
     void work();
     
-    MonitorThread * monitor_thread;
     
 };
 

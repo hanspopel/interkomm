@@ -8,9 +8,9 @@
 
 #include "Server.h"
 #ifdef __IOS__
-#include "ExternalMidiManager.h"
+#include "MidiManagerExternal.h"
 #endif
-#include "InternalMidiManager.h"
+#include "MidiManagerInternal.h"
 
 #include "Interkomm.h"
 //constructor

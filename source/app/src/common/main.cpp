@@ -10,7 +10,7 @@
 #include <GLContext.h>
 #include "ZDBConsole.h"
 #include "interkomm_resources.h"
-#include "InternalMidiManager.h"
+#include "MidiManagerInternal.h"
 #include "Interkomm.h"
 
 

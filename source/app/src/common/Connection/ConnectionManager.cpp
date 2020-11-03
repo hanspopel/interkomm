@@ -41,14 +41,7 @@ ConnectionManager::ConnectionManager(ZDB * a_zdb, int flags, string opt_dns_sear
         broadcast_session();
     });
     
-    Callback * mon_call = new Callback([=](GLEvent * event){
-        broadcast_session();
-    });
 
-    
-    monitor_thread = new MonitorThread(mon_call);
-    
-    
 }
 
 //deconstructor
