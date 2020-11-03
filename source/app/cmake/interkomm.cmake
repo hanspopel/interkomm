@@ -197,7 +197,9 @@ set(RoleFiles
   )
 
 
+include(${RELATIVE_PATH_TO_SOURCE}/../zbd/source/cmake/includes/zdb_server.cmake)
 
+source_group("ZDB\\ServerBase" FILES ${gZDBServerCommon})
 
 source_group("All" FILES ${SOURCE_FILES})
 source_group("Root" FILES ${RootFiles})
@@ -245,6 +247,7 @@ endforeach()
 set(SRC 
     ${RELATIVE_PATH_TO_SOURCE}/src/common/main.cpp
     ${SOURCE_FILES}
+    ${gZDBServerCommon}
     ${ChannelFiles}
     ${BaseControlsFiles}
     ${ConnectionFiles}    
