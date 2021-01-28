@@ -13,6 +13,9 @@
 #include "MidiManagerInternal.h"
 
 #include "Interkomm.h"
+
+
+
 //constructor
 Server::Server(ZDB * a_zdb, TCPConnection * a_connection, TCPClientManager * a_manager) : TCPClientConnection(a_zdb, a_connection, a_manager) {
 
@@ -31,6 +34,7 @@ Server::Server(ZDB * a_zdb, TCPConnection * a_connection, TCPClientManager * a_m
     version_string = addParameter("version_string", 0, 1, 0, false, is_string, 0);
     ableton_version_int = addParameter("ableton version int", 0, 9999999, 0, true, is_linear, new Callback([=](GLEvent * event){
 
+        
     }));
     
     //may_autoconnect->setValue(false);

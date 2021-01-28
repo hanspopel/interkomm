@@ -22,7 +22,7 @@ ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/
 ${RELATIVE_PATH_TO_SOURCE}/src/common//Structure/**
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Audio/
 ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/TopBar/Controls
-
+${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/UDPTestView
 
 
 
@@ -56,6 +56,10 @@ set(RootFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/Server.h
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ConnectionManager.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/ConnectionManager.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/MCGroups.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/MCGroups.h
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/MCGroupSendReceive.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Connection/MCGroupSendReceive.h
   )
 
 set(LayoutFiles
@@ -79,6 +83,16 @@ set(DialogFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Dialog/ChannelDialog.cpp
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Dialog/ChannelDialog.h
 )
+
+
+
+set(UDPTestFiles
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/UDPTest/UDPTestView.cpp
+    ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/UDPTest/UDPTestView.h
+
+)
+
+
 
 set(ChannelViewFiles
     ${RELATIVE_PATH_TO_SOURCE}/src/common/Layout/Communication/Channel/ChannelView.cpp
@@ -234,6 +248,10 @@ source_group("Layout\\Communication\\Overall\\ChannelFrame" FILES ${ChannelFrame
 source_group("Layout\\Communication\\Channel" FILES ${ChannelFiles})
 source_group("Layout\\Communication\\Channel" FILES ${ChannelViewFiles})
 
+
+source_group("Layout\\UDPTest" FILES ${UDPTestFiles})
+
+
 source_group("User" FILES ${UserFiles})
 source_group("Structure" FILES ${StructureFiles})
 source_group("Structure\\User" FILES ${UserFiles})
@@ -282,6 +300,7 @@ set(SRC
     ${WorkspaceFiles}
     ${DialogFiles}
     ${ProfileSettingsFiles}
+    ${UDPTestFiles}
  )
 
 

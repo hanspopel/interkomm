@@ -5,6 +5,7 @@
 
 #include "GLWindow.h"
 
+
 #include <GLView.h>
 #include <GLLabel.h>
 #include <GLContext.h>
@@ -14,9 +15,12 @@
 #include "Interkomm.h"
 
 
+
 int main(int argc, char **argv)
 {
-    printf("Interkommi.\n");
+
+    
+    printf("Interkomm.\n");
     
     
     GLWindow * window = 0;

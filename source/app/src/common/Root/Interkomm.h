@@ -22,9 +22,16 @@
 #include "Profile.h"
 #include "ProfileDialog.h"
 
+#include "MCGroups.h"
+#include "MCGroupSendReceive.h"
+
+//#include "UDPServer.h"
+//#include "UDPClient.h"
+
 
 class Interkomm : public GLControl  {
 public:
+ //   ZDB * a_zdb{0}; // for testing with UDPServer Class
     
     Interkomm(ZDB * a_zdb);
     ~Interkomm();
@@ -32,7 +39,22 @@ public:
     MainView * main_view = 0;
         
     ConnectionManager * connection_manager;
-        
+    
+//    UDPListener * udp_listener{0};
+
+//    UDPSender * udp_sender{0};
+    
+//    UDPSender * mc_udp_sender{0};
+//    const boost::asio::ip::address mc_address;
+    
+//    UDPListener * a_udp_listener{0};
+//    UDPListeners * udp_listeners{0};
+
+    MCGroupSend * a_mcgroupsend{0};
+    MCGroupReceive * a_mcreceiver{0};
+    
+
+    
     bool restore();
     
     Session * interkomm_session = 0;

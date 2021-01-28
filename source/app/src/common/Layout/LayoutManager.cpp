@@ -35,6 +35,10 @@ LayoutManager::LayoutManager(ZDB * a_zdb) : GLControl(a_zdb) {
     main_view->addSubview(communication_view);
     settings_view = new SettingsView(a_zdb,content_views);
 
+    udp_test_view = new UDPTestView(a_zdb,content_views);
+
+    
+    
     top_bar = new TopBar(a_zdb,this);
     addSubview(top_bar);
     
@@ -68,7 +72,7 @@ void LayoutManager::select_content_view(int a_tag){
     
     int btn_tag = a_tag;
 
-    for (TopBarButton * a_btn:*layout_selection_buttons) {
+    for (TopBarButton * a_btn : *layout_selection_buttons) {
         if (btn_tag != a_btn->tag) {
             a_btn->setValue(0);
         }
@@ -77,7 +81,7 @@ void LayoutManager::select_content_view(int a_tag){
         }
     }
     
-    for (GLView * a_view:*content_views) {
+    for (GLView * a_view : *content_views) {
         a_view->removeFromSuperview();
     }
     main_view->addSubview(content_views->at(a_tag));

@@ -53,12 +53,12 @@ TopBar::TopBar(ZDB * a_zdb, LayoutManager * layout_manager) : GLView(a_zdb) {
     server_status->setImageOn(gl->imageWithName("solo_icon.png"));
     server_status->imageColorHigh = TAExtremeLightGray();
     server_status->highlightsWhenTouched = false;
+    
     server_status->addCallbackForControlEvent(new Callback([=](GLEvent * event){
-        
 
         server_status->control_title = "Connection Status || v. " + string("0");
-        
         gl->open_property_list(server_status, [=]{
+
         });
         
     }), GLControlEventTouchUpInside);

@@ -55,7 +55,7 @@ SettingsView::SettingsView(ZDB * a_zdb, GLViews * content_views) : ContentView(a
     settings_buttons->push_back(channels_btn);
     
     GLStyleButton * edit_profile_btn = new GLStyleButton(a_zdb);
-    edit_profile_btn->titleLabel->setText("Edit Profle");
+    edit_profile_btn->titleLabel->setText("Edit Profile");
     settings_scroll_view->addSubview(edit_profile_btn,0,2);
     settings_buttons->push_back(edit_profile_btn);
     
@@ -113,7 +113,9 @@ void SettingsView::enter_detail_view(int tag){
         case 1:
         settings_detail_content_view->addSubview(channels_view);
         break;
-            
+        case 2:
+        settings_detail_content_view->addSubview(roles_view);
+            break;
         default:
             break;
     }

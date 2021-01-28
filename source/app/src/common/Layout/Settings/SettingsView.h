@@ -37,6 +37,7 @@ public:
     
     RolesView * roles_view;
     ChannelsView * channels_view;
+    
 
     void load_profile(string path);
     void save_profile(string path);

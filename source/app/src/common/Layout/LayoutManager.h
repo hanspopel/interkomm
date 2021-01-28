@@ -14,6 +14,7 @@
 #include "TopBarButton.h"
 #include "CommunicationView.h"
 #include "SettingsView.h"
+#include "UDPTestView.h"
 
 typedef unordered_map <int, GLView*> ContentViewMap;
 
@@ -47,6 +48,7 @@ public:
     
     CommunicationView * communication_view;
     SettingsView * settings_view;
+    UDPTestView * udp_test_view;
 
     
     float topbar_height = 1;

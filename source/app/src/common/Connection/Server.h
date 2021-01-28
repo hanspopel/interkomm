@@ -12,6 +12,7 @@
 #include "ZDBObject.h"
 #include "TCPCallbackManager.h"
 #include "TCPClientConnection.h"
+//#include <asio/io_context.hpp>
 
 
 class Server : public TCPClientConnection {
@@ -22,6 +23,7 @@ public:
     
     void add_callbacks();
     bool probably_usb = false;
+
 
 };
 
